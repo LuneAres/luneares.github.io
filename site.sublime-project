@@ -1,0 +1,27 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+
+	"settings":
+	{
+		"latextools.output_directory": "pdf_files",
+		"latextools.aux_directory": "latex_aux_files"
+	},
+
+	"build_systems":
+	[
+		{
+			// "name": "Windows",
+			// "target": "terminus_exec",
+			// "cancel": "terminus_cancel_build",
+			// "cmd": [
+			// 	"mingw32-make"
+			// ],
+			// "working_dir": "$folder/build/windows"
+		},
+	]
+}
