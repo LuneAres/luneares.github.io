@@ -216,7 +216,7 @@ Notamment le deuxième point, qui se généralise même bien au cas d'ensembles 
 <h3 id="famille-irréductible">Famille irréductible</h3>
 
 <p>J’associe l’appellation “irréductible” a l’idée qu’on ne peut pas trouver de sous-application “cachée” (qui ne soit pas triviale) dans une application $u: E \to E$ : si $E$ admet une partie stable par $u$, alors on peut restreindre $u$ à cette partie et récupérer une “sous-application cachée”.
-Dans le d’espaces vectoriels on considère des sous-espaces stables plutôt que des parties (on pourrait par exemple considérer le cerle unité pour une rotation dans $\R^2$, mais on n’hérite pas de la structure d’espae vectoriel, donc la restriction n’est plus une application linéaire)</p>
+Dans le d’espaces vectoriels on considère des sous-espaces stables plutôt que des parties quelconques (autrement on pourrait par exemple considérer le cerle unité, qui est stable par une rotation dans $\R^2$, mais le cercle unité n’hérite pas de la structure d’espae vectoriel, donc la restriction de la rotation n’est plus une application linéaire)</p>
 
 <p>Et donc on définit l’irréductibilité d’une famille d’applications de $\Hom(E)$ par le fait qu’il n’existe pas de partie stable cachant un famille de sous-applications :<br />
 <strong>Déf.</strong> Une partie $U \subset \Hom(E)$ est dite irréductible si les deux seules parties de $E$ stables par tout les éléments de $U$ sont $E$ et $\emptyset$.</p>
@@ -344,7 +344,11 @@ On a $C’ = f^{-1}({b})$ avec $b \in F$, et on pose $v(a)$ = $b$.</li>
 
 <p>Pour tout $g, g’ \in G$ et $\lambda \in \C$ on a :
 $$
-	\rho(g’) \circ (\rho(g) - \lambda Id_n) = \rho(g’) \circ \rho(g) - \rho(g’) \circ \lambda Id_n = \rho(g) \circ \rho(g’) - \lambda Id_n \circ \rho(g’) = (\rho(g) - \lambda Id_n) \circ \rho(g’)
+\begin{align}
+	\rho(g’) \circ (\rho(g) - \lambda Id_n) &amp;= \rho(g’) \circ \rho(g) - \rho(g’) \circ \lambda Id_n \newline
+	                                        &amp;= \rho(g) \circ \rho(g’) - \lambda Id_n \circ \rho(g’) \newline
+	                                        &amp;= (\rho(g) - \lambda Id_n) \circ \rho(g’)
+\end{align}
 $$</p>
 
 <p>Or la famille $\{\rho(g) \,|\, g \in G \}$ est irréductible, donc d’après le lemme de Schur les applications de la forme $\rho(g) - \lambda Id_n$ sont toutes inversibles ou nulles.</p>
