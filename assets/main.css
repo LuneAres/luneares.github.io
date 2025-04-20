@@ -216,53 +216,112 @@ table td {
 /*------------------------
      ELIAS: Additions
 ------------------------*/
-.moveup {
-  margin-top: -10pt;
-  height: 0pt;
+p + ul, p + ol {
+  margin-top: -15px;
 }
 
-.alert {
-  margin-top: -24px;
+.moveup {
+  margin-top: -15px;
 }
-.alert .alert-icon {
-  max-height: 24px;
-  position: relative;
-  left: -30px;
-  top: 24px;
-}
-@media screen and (max-width: 800px) {
-  .alert .alert-icon {
-    left: -24px;
-  }
-}
-.alert div {
-  color: rgb(104.5, 104.5, 104.5);
-  padding-left: 15px;
-  font-size: 18px;
-  letter-spacing: -1px;
-  font-style: italic;
+
+.alert > h1 {
+  font-size: 19.2px;
+  font-style: bold;
+  margin-left: -18px;
 }
 @media screen and (max-width: 800px) {
   .alert {
     margin-left: 15px;
   }
 }
-.alert > :last-child {
+.alert > div {
+  color: rgb(104.5, 104.5, 104.5);
+  padding-left: 15px;
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-style: italic;
   margin-bottom: 0;
 }
 
+.alert-with-icon {
+  margin-top: -24px;
+}
+.alert-with-icon .alert-icon {
+  max-height: 24px;
+  position: relative;
+  left: -30px;
+  top: 24px;
+}
+@media screen and (max-width: 800px) {
+  .alert-with-icon .alert-icon {
+    left: -24px;
+  }
+}
+
+.alert-question > h1 {
+  color: green;
+}
 .alert-question .alert-icon {
   filter: invert(22%) sepia(96%) saturate(2156%) hue-rotate(93deg) brightness(103%) contrast(103%);
 }
-.alert-question div {
+.alert-question > div {
   border-left: 4px solid green;
+  color: color-mix(in srgb, green 20%, rgb(104.5, 104.5, 104.5));
 }
 
+.alert-important > h1 {
+  color: darkcyan;
+}
 .alert-important .alert-icon {
   filter: invert(31%) sepia(86%) saturate(1248%) hue-rotate(151deg) brightness(97%) contrast(101%);
 }
-.alert-important div {
+.alert-important > div {
   border-left: 4px solid darkcyan;
+  color: color-mix(in srgb, darkcyan 20%, rgb(104.5, 104.5, 104.5));
+}
+
+.alert-note > h1 {
+  color: lightpink;
+}
+.alert-note .alert-icon {
+  filter: invert(71%) sepia(37%) saturate(615%) hue-rotate(307deg) brightness(112%) contrast(101%);
+}
+.alert-note > div {
+  border-left: 4px solid lightpink;
+  color: color-mix(in srgb, lightpink 20%, rgb(104.5, 104.5, 104.5));
+}
+
+.alert-example > h1 {
+  color: indianred;
+}
+.alert-example .alert-icon {
+  filter: invert(46%) sepia(11%) saturate(4140%) hue-rotate(316deg) brightness(92%) contrast(73%);
+}
+.alert-example > div {
+  border-left: 4px solid indianred;
+  color: color-mix(in srgb, indianred 20%, rgb(104.5, 104.5, 104.5));
+}
+
+.alert-warning > h1 {
+  color: crimson;
+}
+.alert-warning .alert-icon {
+  filter: invert(25%) sepia(85%) saturate(7285%) hue-rotate(341deg) brightness(88%) contrast(95%);
+}
+.alert-warning > div {
+  border-left: 4px solid crimson;
+  color: color-mix(in srgb, crimson 50%, rgb(104.5, 104.5, 104.5));
+}
+
+.alert-todo > h1 {
+  color: darkturquoise;
+}
+.alert-todo .alert-icon {
+  filter: invert(90%) sepia(17%) saturate(7481%) hue-rotate(124deg) brightness(80%) contrast(105%);
+}
+.alert-todo > div {
+  border-left: 4px solid darkturquoise;
+  color: color-mix(in srgb, darkturquoise 40%, rgb(104.5, 104.5, 104.5));
 }
 
 /**
@@ -384,13 +443,13 @@ table td {
 }
 
 .footer-col-1 {
-  width: -webkit-calc(35% - (30px / 2));
-  width: calc(35% - 30px / 2);
+  width: -webkit-calc(25% - (30px / 2));
+  width: calc(25% - 30px / 2);
 }
 
 .footer-col-2 {
-  width: -webkit-calc(20% - (30px / 2));
-  width: calc(20% - 30px / 2);
+  width: -webkit-calc(30% - (30px / 2));
+  width: calc(30% - 30px / 2);
 }
 
 .footer-col-3 {
@@ -509,6 +568,19 @@ table td {
   .post-content h4 {
     font-size: 18px;
   }
+}
+
+.dailypost-title {
+  font-size: 19.2px;
+  color: #828282;
+  margin-bottom: 0px;
+}
+
+.dailypost-date {
+  font-size: 24px;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 0px;
 }
 
 /**

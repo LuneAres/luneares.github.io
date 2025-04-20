@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Daily posts (full)</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Daily posts (full)" />
+<meta name="author" content="Elias Garcia--Naze" />
+<meta property="og:locale" content="fr" />
+<meta name="description" content="Un petit blog de maths pour raconter ce que je fais pendant mon stage" />
+<meta property="og:description" content="Un petit blog de maths pour raconter ce que je fais pendant mon stage" />
+<link rel="canonical" href="https://luneares.github.io/daily_posts_full.html" />
+<meta property="og:url" content="https://luneares.github.io/daily_posts_full.html" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Daily posts (full)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Elias Garcia--Naze"},"description":"Un petit blog de maths pour raconter ce que je fais pendant mon stage","headline":"Daily posts (full)","url":"https://luneares.github.io/daily_posts_full.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://luneares.github.io/feed.xml" /><script
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      type="text/javascript">
+    </script>
+    <!-- More informations:
+    https://minimalbb.github.io/cheat%20sheet/kramdown-markdown-guide-with-jekyll/
+    https://www.fabriziomusacchio.com/blog/2021-08-10-How_to_use_LaTeX_in_Markdown/
+    -->
+    <!-- et si je veux utiliser mathjax sur "$$" (je l'ai enlevé parce que comme ça je laisse kramdown parser et transformer les "$" en "\(", ce qui permet d'échapper les "$" en écrivant "\$")
+      inlineMath: [['$','$'], ['\\(','\\)']]
+    -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['\\(','\\)']],
+          processEscapes: true
+        },
+        "HTML-CSS": { scale: 90, linebreaks: { automatic: false } }, 
+        SVG: { linebreaks: { automatic: false } }, 
+        displayAlign: "center"
+      });
+    </script>
+
+    <!-- And there is this. I don't even know where I've taken it from and why: -->
+    <!-- <script
+      type="text/javascript"
+      charset="utf-8"
+      src="https://vincenttam.github.io/javascripts/MathJaxLocal.js"
+    >
+    </script> -->
+
+    <!-- latex macros -->
+    <!-- See:
+      https://www.wild-inter.net/posts/mathjax-in-jekyll
+      https://docs.mathjax.org/en/latest/input/tex/macros.html
+    -->
+    <div style="display:none">
+    $$\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\L}{\mathcal{L}}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\GL}{GL}$$
+    </div></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href=""></a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/daily_posts.html">Daily posts</a><a class="page-link" href="/">Home</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="page"><h1 class="page-heading">Daily posts (full)</h1><article class="post h-entry">
+      <header class="post-header">
+        <time class="dt-published dailypost-date" datetime="2025-04-17T00:00:00+02:00">Thu, Apr 17, 2025
+        </time>
+        <h2 class="dailypost-title p-name">Début de construction de l&#39;espace tangent d&#39;une variété et de la différentielle</h2>
+      </header>
+
+      <div class="post-content e-content">
+        <p>Ok, je crois que j’ai la construction de l’espace tangent en un point d’une variété différentielle !</p>
+
+<p>Si tu prends une fonction sur la variété différentielle (à valeur dans \(\R^m\) pour l’instant) tu peux définir la différentiabilité en un point de manière indépendante de la carte choisie autour du point car les changements de cartes sont des difféomorphismes. Mais à première vu la diférentielle de la fonction ne remonte pas bien sur la variété car la différentielle du changement de carte n’est pas forcément l’identité.</p>
+
+<aside class="alert alert-question alert-with-icon">
+<img alt="" src="/assets/images/callouts/question.svg" class="alert-icon" />  <div>    <p>Qu’est ce que ça donne d’ailleurs si on impose que ce soit l’identité ?</p>
+</div>
+</aside>
+
+<p>La technique qu’on utilise consite à d’abord ramener la différentielle de la fonction à des dérivées directionnelles. Puis dire que le dérivées directionnelles sont des dérivés le long d’un chemin \(\gamma_a: t \mapsto ta\) (donc au lieu de regarder la différentielle comme une application linéaire appliquée à \(a\) on peut l’appliquée à \(\gamma_a\) (en munissant les chemins de la strcuture d’espace vectoriel qui va bien)), mais que cela donne la même chose pour tout chemin \(\gamma: \R \to \R^n\) dérivable en 0 tel que \(\gamma(0) = \psi(x)\) (où \(x\) est le point de la variété où on cherche à définir la différentielle et \(\psi\) est la carte autour de \(x\) qu’on utilise pour l’instant).</p>
+
+<p>Le dernier point clé c’est que “avoir la même différentielle” est une propriété des fonctions sur la variété qui ne dépend pas de la carte qu’on utilise. On peut donc quotienter les chemins dans \(\R^n\) par cette propriété, définir la différentielle comme agissant sur le quotient (muni d’une structure s’espace vectoriel qui va bien, qui se trouve isomorphe à \(\R^n\)), et utiliser n’importe quelle carte pour faire remonter le quotient à une partition des chemins dans la variété (hop, encore une fois muni de la structure d’espace vectoriel qui va bien (ce coup ci il faut faire gaffe à ce que la structure ne dépende pas de la carte)), qui peut nous servir d’espace tangent pour définir la différentielle de manière indépendante de la carte !</p>
+
+<p>Je me suis amusé à en faire ce superbe diagramme inbuvable (que j’espère vrai, outre mes notations pas très conventionnelles et l’utilisation probablement approximative du <em>pushforward</em>) :
+<img style="display: block; margin: auto;" src="/assets/differentiation_manifold.svg" />
+<!-- 
+https://q.uiver.app/#q=WzAsMjYsWzAsMiwiVSJdLFswLDQsIlxcUl5tIl0sWzIsMiwiXFxwc2koVSkgXFxzdWJzZXQgXFxSXm4iXSxbMiwwLCJKIFxcc3Vic2V0IFxcUiJdLFsxMCwyLCJVIl0sWzEwLDQsIlxccHNpKFUpIFxcc3Vic2V0IFxcUl5uIl0sWzgsNiwiXFxSIl0sWzE3LDIsIlUnIl0sWzE3LDAsIlxcUl5uIl0sWzE5LDIsIlxccHNpJyhVJykgXFxzdWJzZXQgXFxSXm0iXSxbMTksNCwiXFxSIl0sWzEwLDYsIlxcUl5uIl0sWzksOCwiXFxtYXRoY2Fse0N9XlxcaW5mdHlfezAgXFxtYXBzdG8gXFxwc2koeCl9KFxcUixcXFJebikiXSxbMyw3LCJcXHRleHR7YXZlYyB9IFxcbWF0aGNhbHtDfV5cXGluZnR5X3swIFxcbWFwc3RvIFxccHNpKHgpfShcXFIsXFxSXm4pIFxcdGV4dHsgbGVzIGZvbmN0aW9ucyBkZSB9IFxcUiBcXHRleHR7IGRhbnMgfSBcXFJebiBcXHRleHR7IHF1aSB2YWxlbnQgfSBcXHBzaSh4KSBcXHRleHR7IGVuIDAgZXQgc29udCBsaXNzZXMgZW4gMH0iXSxbOCw4LCJcXG1hdGhjYWx7Q31eXFxpbmZ0eV97MCBcXG1hcHN0byBcXHBzaSh4KX1cXGJpZyhcXFIsXFxwc2koVSlcXGJpZykiXSxbNiw4LCJcXG1hdGhjYWx7Q31eXFxpbmZ0eV97MCBcXG1hcHN0byB4fShcXFIsVSkiXSxbOCw0LCJcXFIiXSxbMTMsNCwiXFxSXm0iXSxbMTMsMiwiXFxSXm0iXSxbMTMsNiwiXFxSXm0iXSxbMTAsMTAsIlxcbWF0aGNhbHtDfV5cXGluZnR5X3swIFxcbWFwc3RvIFxccHNpKHgpfShcXFIsXFxSXm4pIC8gXFxzaW0iXSxbOCwxMCwiXFxtYXRoY2Fse0N9XlxcaW5mdHlfezAgXFxtYXBzdG8gXFxwc2koeCl9XFxiaWcoXFxSLFxccHNpKFUpXFxiaWcpIC8gXFxzaW0iXSxbNiwxMCwiXFxtYXRoY2Fse0N9XlxcaW5mdHlfezAgXFxtYXBzdG8geH0oXFxSLFUpIC8gXFxzaW0iXSxbNCw4LCJcXG1hdGhjYWx7Q31eXFxpbmZ0eV97MCBcXG1hcHN0byB4fShcXFIsTSkiXSxbNCwxMCwiVF94KE0pID0gXFxtYXRoY2Fse0N9XlxcaW5mdHlfezAgXFxtYXBzdG8geH0oXFxSLE0pIC8gXFxzaW0iXSxbNCwxMiwiXFxSXm0iXSxbMCwyLCJcXHBzaSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFswLDEsImYiLDJdLFsyLDEsIlxccHNpXypmID0gZiBcXGNpcmMgXFxwc2leey0xfSJdLFszLDIsIlxcZ2FtbWFfYTogdCBcXG1hcHN0byBcXHBzaSh4KSArIGF0Il0sWzMsMCwiXFxwc2leKmYgPSBcXHBzaSBcXGNpcmMgXFxnYW1tYV9hIiwyXSxbNCw1LCJcXHBzaSIsMl0sWzgsNywiZiIsMl0sWzcsOSwiXFxwc2knIiwyXSxbOCw5LCJcXHBzaV8qZiJdLFs3LDEwLCJcXHBzaV4qIFxccGlfYSIsMl0sWzksMTAsIlxccGlfYTogXFxsYW1iZGEgYSBcXG9wbHVzIHggXFx0byBcXGxhbWJkYSJdLFs1LDExLCIiLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFsxMiwxMSwiXFxnYW1tYSBcXG1hcHN0byBcXGZyYWN7ZH17ZHR9XFxiaWd8X3t0PTB9IFxcZ2FtbWEodCkiLDIseyJjdXJ2ZSI6MSwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzE0LDEyLCJpXzEiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFs2LDExLCJcXGdhbW1hX2EiLDFdLFs2LDE2LCIiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9fX1dLFsxNiw1LCJcXGdhbW1hX2EiLDFdLFsxNiw0XSxbNSwxNywiKFxccHNpXypmKSA9IGYgXFxjaXJjIFxccHNpXnstMX0iLDJdLFs0LDE4LCJmIiwxXSxbMTgsMTcsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFsxNywxOSwiIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiYXJyb3doZWFkIn19fV0sWzExLDE5LCJkX3tcXHBzaSh4KX0oXFxwc2lfKmYpIiwyXSxbMTQsMjEsIlxccGkiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMTUsMjIsIlxccGkiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMjEsMjAsIlxccGlfKmlfMSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxNSwyMywiaV8yIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMjMsMjQsIlxccGkiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMjIsMjQsIlxccGlfKmlfMiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsyNCwyNSwiZF97XFxwc2koeCl9KFxccHNpXypmKSBcXGNpcmMgXFxtdV57LTF9IFxcY2lyYyBcXHBpXyppXzEgXFxjaXJjIFxccGlfKlxccHNpXyogXFxjaXJjIChcXHBpXyppXzIpXnstMX0iXSxbMTIsMjAsIlxccGkiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMTEsMTIsImEgXFxtYXBzdG8gXFxnYW1tYV9hIiwyLHsiY3VydmUiOjEsInN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzExLDIwLCJcXG11OiBhIFxcbWFwc3RvIFxccGkoXFxnYW1tYV9hKSIsMCx7ImN1cnZlIjotMywic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzE1LDE0LCJcXHBzaV8qOiBcXGdhbW1hIFxcbWFwc3RvIFxccHNpIFxcY2lyYyBcXGdhbW1hIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzIyLDIxLCJcXHBpXypcXHBzaV8qIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzExLDQwLCIiLDIseyJvZmZzZXQiOjEsImN1cnZlIjoyLCJzaG9ydGVuIjp7InRhcmdldCI6MTB9LCJsZXZlbCI6MSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoic3F1aWdnbHkifX19XSxbNDAsMTIsIiIsMCx7Im9mZnNldCI6MSwiY3VydmUiOjEsInNob3J0ZW4iOnsic291cmNlIjoxMH0sImxldmVsIjoxLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
+--></p>
+
+<aside class="alert alert-todo alert-with-icon">
+<img alt="" src="/assets/images/callouts/todo.svg" class="alert-icon" />  <div>    <p>Maintenant on fait ça pour une fonction à valeur dans un manifold ! (passage au dual puis application de la méthode précédente ?)</p>
+</div>
+</aside>
+
+
+      </div>
+    </article><article class="post h-entry">
+      <header class="post-header">
+        <time class="dt-published dailypost-date" datetime="2025-04-18T00:00:00+02:00">Fri, Apr 18, 2025
+        </time>
+        <h2 class="dailypost-title p-name">Nothing much</h2>
+      </header>
+
+      <div class="post-content e-content">
+        <p>J’ai un peu avancé la rédaction au propre de ce dont je parlais hier.</p>
+
+<p>Par contre de ce que j’ai vu il me manque un truc pour avoir la formulation classique de l’espace tangent d’une variété. Normalement on utilise l’ensemble des applications linéaires \(v: \mathcal{C}^\infty_x(M,\R) \to \R\) de la forme \(v(f) = \frac{d}{dt}\big|_{t=0} f(\gamma(t))\) pour un \(\gamma \in \mathcal{C}^\infty_{0 \mapsto x}(\R,M)\).</p>
+
+<p>Au vu des formules que j’ai vu ensuite pour la différentielle d’une application entre variété, cette formulation a l’air clairement plus maniable. Il faut que j’arrive à la prendre en main ! (mon cobaye pour tout ça ce sera l’action adjointe pour des groupes de Lie)</p>
+
+<p>Pour l’instant j’ai réussi à montrer la bijection entre les deux formulations, mais j’ai pas encore regardé le passage des structures (notamment parce que je suis pas encore tout à fait au clair sur ce que j’ai proposé hier).<br />
+Une fois que j’aurai commencé à faire proprement les trucs d’hier on va voir si j’arrive à la relier intuitivement au reste (à ma formulation et/ou directement au problème de départ)</p>
+
+      </div>
+    </article><article class="post h-entry">
+      <header class="post-header">
+        <time class="dt-published dailypost-date" datetime="2025-04-19T00:00:00+02:00">Sat, Apr 19, 2025
+        </time>
+        <h2 class="dailypost-title p-name">Nothing much either</h2>
+      </header>
+
+      <div class="post-content e-content">
+        <p>Aujourd’hui j’ai pas fait grand chose en termes de maths.</p>
+
+<p>J’ai fait quelques modifications sur le parser markdown pour le blog (Kramdown), ça m’a pris un bon moment mais je suis content (j’ai changé manière dont il gère certains trucs pour les maths, notamment les tableaux parce que je pouvais pas utiliser le caractère “|” tranquilement).</p>
+
+<p>Et je suis enfin sorti me balader, ça faisait quelques jours que j’avais pas fait ça, ça fait du bien !</p>
+
+<p>Et j’ai réorganisé le blog pour pouvoir mettre en ligne les daily posts !<br />
+J’ai écrit les daily posts d’hier et d’aujourd’hui, j’ai réécrit la page d’accueil, j’ai enlevé les tags sur les posts et j’ai enlevé les posts en cours d’écriture, et j’ai ajouté une page pour la licence et les remerciements et une pour les mentions légales (la première est à peu près remplie et la deuxième est totalement vide)</p>
+
+<p>Bref pas si productif pour les maths, mais c’est le week-end et j’ai passé une bonne journée :) (et au final j’ai quand même fait pas mal de trucs pour le blog)</p>
+
+      </div>
+    </article>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading"></h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Elias Garcia--Naze</li></ul><ul class="social-media-list"><li><a href="https://github.com/LuneAres"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">LuneAres</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-2">
+        <a href="/license.html">Licence et remerciements</a>
+        <a href="/mentions_legales.html">Mentions légales</a>
+        <!-- <p xmlns:cc="http://creativecommons.org/ns#" >
+          Le contenu de ce site est autant que possible soumis à la licence
+          <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1" alt=""></a>
+        </p> -->
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Un petit blog de maths pour raconter ce que je fais pendant mon stage</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

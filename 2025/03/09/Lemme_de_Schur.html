@@ -8,33 +8,40 @@
 <meta property="og:title" content="Lemme de Schur" />
 <meta name="author" content="Elias Garcia--Naze" />
 <meta property="og:locale" content="fr" />
-<meta name="description" content="Un petit blog de maths" />
-<meta property="og:description" content="Un petit blog de maths" />
-<link rel="canonical" href="http://localhost:4000/2025/03/09/Lemme_de_Schur.html" />
-<meta property="og:url" content="http://localhost:4000/2025/03/09/Lemme_de_Schur.html" />
+<meta name="description" content="Un petit blog de maths pour raconter ce que je fais pendant mon stage" />
+<meta property="og:description" content="Un petit blog de maths pour raconter ce que je fais pendant mon stage" />
+<link rel="canonical" href="https://luneares.github.io/2025/03/09/Lemme_de_Schur.html" />
+<meta property="og:url" content="https://luneares.github.io/2025/03/09/Lemme_de_Schur.html" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-03-09T00:00:00+01:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Lemme de Schur" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Elias Garcia--Naze"},"dateModified":"2025-03-09T00:00:00+01:00","datePublished":"2025-03-09T00:00:00+01:00","description":"Un petit blog de maths","headline":"Lemme de Schur","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/03/09/Lemme_de_Schur.html"},"url":"http://localhost:4000/2025/03/09/Lemme_de_Schur.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Elias Garcia--Naze"},"dateModified":"2025-03-09T00:00:00+01:00","datePublished":"2025-03-09T00:00:00+01:00","description":"Un petit blog de maths pour raconter ce que je fais pendant mon stage","headline":"Lemme de Schur","mainEntityOfPage":{"@type":"WebPage","@id":"https://luneares.github.io/2025/03/09/Lemme_de_Schur.html"},"url":"https://luneares.github.io/2025/03/09/Lemme_de_Schur.html"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" /><script
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://luneares.github.io/feed.xml" /><script
       src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
       type="text/javascript">
     </script>
     <!-- More informations:
     https://minimalbb.github.io/cheat%20sheet/kramdown-markdown-guide-with-jekyll/
     https://www.fabriziomusacchio.com/blog/2021-08-10-How_to_use_LaTeX_in_Markdown/
-     -->
+    -->
+    <!-- et si je veux utiliser mathjax sur "$$" (je l'ai enlevé parce que comme ça je laisse kramdown parser et transformer les "$" en "\(", ce qui permet d'échapper les "$" en écrivant "\$")
+      inlineMath: [['$','$'], ['\\(','\\)']]
+    -->
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         tex2jax: {
-          inlineMath: [['$','$'], ['\\(','\\)']],
+          inlineMath: [['\\(','\\)']],
           processEscapes: true
-        }
+        },
+        "HTML-CSS": { scale: 90, linebreaks: { automatic: false } }, 
+        SVG: { linebreaks: { automatic: false } }, 
+        displayAlign: "center"
       });
     </script>
+
     <!-- And there is this. I don't even know where I've taken it from and why: -->
     <!-- <script
       type="text/javascript"
@@ -42,6 +49,12 @@
       src="https://vincenttam.github.io/javascripts/MathJaxLocal.js"
     >
     </script> -->
+
+    <!-- latex macros -->
+    <!-- See:
+      https://www.wild-inter.net/posts/mathjax-in-jekyll
+      https://docs.mathjax.org/en/latest/input/tex/macros.html
+    -->
     <div style="display:none">
     $$\newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -67,7 +80,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/dump.html">Dump d&#39;idées</a><a class="page-link" href="/">Home</a></div>
+        <div class="trigger"><a class="page-link" href="/daily_posts.html">Daily posts</a><a class="page-link" href="/">Home</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -77,11 +90,10 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">
       
-        <span style="background-color: #ffbb40; padding: 1px; border-radius: 10%; font-size: 16px; vertical-align: middle;">WIP</span>
       
       Lemme de Schur
     </h1>
-    <h2 class="post-subtitle p-name" itemprop="name sub headline">et représentations irréductibles sur un espace vectoriel complexe de dimension finie</h2>
+    <h2 class="post-subtitle p-name" itemprop="alternativeHeadline">et représentations irréductibles sur un espace vectoriel complexe de dimension finie</h2>
     <p class="post-meta">
       <time class="dt-published" datetime="2025-03-09T00:00:00+01:00" itemprop="datePublished">Mar 9, 2025
       </time></p>
@@ -135,64 +147,58 @@ Et en bonus à la fin je donne une preuve du résultat qui utilise le lemme, pui
 
 <p>(source: Wikipédia)</p>
 
-<p>On considère des espaces vectoriels $E$ et $F$ sur un corps $\mathbf{k}$.</p>
+<p>On considère des espaces vectoriels \(E\) et \(F\) sur un corps \(\mathbf{k}\).</p>
 
 <p>D’abord une première définition.<br />
-<strong>Déf.</strong> Une partie $U \subset \L(E)$ est dite irréductible si les deux seuls sous-espaces vectoriels de $E$ stables par tout les éléments de $U$ sont $E$ et ${0_E}$.</p>
+<strong>Déf.</strong> Une partie \(U \subset \L(E)\) est dite irréductible si les deux seuls sous-espaces vectoriels de \(E\) stables par tout les éléments de \(U\) sont \(E\) et \(\{0_E\}\).</p>
 
 <p>Puis on peut éoncer le lemme :</p>
 <blockquote>
   <p><strong>Prop.</strong>
-Soit $f: E \to F$ une application linéaire non nulle. On a les deux affirmations suivantes.</p>
+Soit \(f: E \to F\) une application linéaire non nulle. On a les deux affirmations suivantes.</p>
   <ol>
-    <li>S’il existe une partie irréductible $U \subset \L(E)$ telle que
- $$
-     \forall u \in U, \exists v \in \L(F),\; f \circ u = v \circ f
- $$
- alors $f$ est injective.</li>
-    <li>S’il existe une partie irréductible $V \subset \L(F)$ telle que
- $$
-     \forall v \in V, \exists u \in \L(E),\; f \circ u = v \circ f
- $$
- alors $f$ est surjective.</li>
+    <li>S’il existe une partie irréductible \(U \subset \L(E)\) telle que
+ \[\forall u \in U, \exists v \in \L(F),\; f \circ u = v \circ f\]
+
+ alors \(f\) est injective.</li>
+    <li>S’il existe une partie irréductible \(V \subset \L(F)\) telle que
+ \[\forall v \in V, \exists u \in \L(E),\; f \circ u = v \circ f\]
+
+ alors \(f\) est surjective.</li>
   </ol>
 </blockquote>
 
 <p><strong>Démonstration</strong></p>
 <ol>
-  <li>On regarde le noyau de $f$.<br />
- On voit qu’il est stable par $U$ car pour tout $u \in U$ il existe $v \in \L(F)$ tel que
- $$
-     (f \circ u)(\ker f) = (v \circ f)(\ker f) = v({0}) = {0}
- $$
- donc par irréductibilité de $U$ le noyau est soit $E$, soit ${0_E}$.
- Or comme $f$ est non nulle on a $\ker f \neq E$, d’où $\ker f = {0_E}$ et $f$ injective.</li>
-  <li>On regarde l’image de $f$.<br />
- On voit qu’elle est stable par $V$ car pour tout $v \in V$ il existe $u \in \L(E)$ tel que
- $$
-     v(f(E)) = f(u(E)) \subset f(E)
- $$
- donc par irréductibilité de $V$ l’image est soit $F$, soit ${0_F}$.
- Or comme $f$ est non nulle on a $f(E) \neq {0_F}$, d’où $f(E) = F$ et $f$ surjective.</li>
+  <li>On regarde le noyau de \(f\).<br />
+ On voit qu’il est stable par \(U\) car pour tout \(u \in U\) il existe \(v \in \L(F)\) tel que
+ \[(f \circ u)(\ker f) = (v \circ f)(\ker f) = v(\{0\}) = \{0\}\]
+
+ donc par irréductibilité de \(U\) le noyau est soit \(E\), soit \(\{0_E\}\).
+ Or comme \(f\) est non nulle on a \(\ker f \neq E\), d’où \(\ker f = \{0_E\}\) et \(f\) injective.</li>
+  <li>On regarde l’image de \(f\).<br />
+ On voit qu’elle est stable par \(V\) car pour tout \(v \in V\) il existe \(u \in \L(E)\) tel que
+ \[v(f(E)) = f(u(E)) \subset f(E)\]
+
+ donc par irréductibilité de \(V\) l’image est soit \(F\), soit \(\{0_F\}\).
+ Or comme \(f\) est non nulle on a \(f(E) \neq \{0_F\}\), d’où \(f(E) = F\) et \(f\) surjective.</li>
 </ol>
 
 <h2 id="réflexions-sur-le-lemme-de-schur">Réflexions sur le lemme de Schur</h2>
 
 <p>Le but est maintenant d’étudier les idées du lemme de Schur dans un contexte plus général que celui des espaces vectoriels et des applications linéaires, donc on reprend globalement les mêmes notations mais pour d’autres objets.</p>
 
-<p>On considère $E$ et $F$ deux ensembles et une application $f: E \to F$.</p>
+<p>On considère \(E\) et \(F\) deux ensembles et une application \(f: E \to F\).</p>
 
-<p><strong>Notation.</strong> On note $\Hom(E)$ l’ensemble des applications de $E$ dans $E$.</p>
+<p><strong>Notation.</strong> On note \(\Hom(E)\) l’ensemble des applications de \(E\) dans \(E\).</p>
 
 <p>De manière assez similaire à la preuve du lemme de Schur on va d’abord étudier ce que signifient les points suivants :</p>
-<div class="moveup"></div>
-
 <ul>
-  <li>$\exists v \in \Hom(F),\; f \circ u = v \circ f$ (pour $u \in \Hom(E)$ fixé)</li>
-  <li>$\exists u \in \Hom(E),\; f \circ u = v \circ f$ (pour $v \in \Hom(F)$ fixé)</li>
+  <li>\(\exists v \in \Hom(F),\; f \circ u = v \circ f\) (pour \(u \in \Hom(E)\) fixé)</li>
+  <li>\(\exists u \in \Hom(E),\; f \circ u = v \circ f\) (pour \(v \in \Hom(F)\) fixé)</li>
 </ul>
 
-<p>Puis on se penchera sur les contraintes imposées sur $f$ lorsque ces points sont vérfifiés pour tout $u$ (resp. $v$) dans une famille irréductible de $\Hom(E)$ (resp. $\Hom(F)$).</p>
+<p>Puis on se penchera sur les contraintes imposées sur \(f\) lorsque ces points sont vérfifiés pour tout \(u\) (resp. \(v\)) dans une famille irréductible de \(\Hom(E)\) (resp. \(\Hom(F)\)).</p>
 
 <!-- - famille irréductible : on veut pas pouvoir restreindre tous les éléments de la 
 
@@ -215,51 +221,48 @@ Notamment le deuxième point, qui se généralise même bien au cas d'ensembles 
 
 <h3 id="famille-irréductible">Famille irréductible</h3>
 
-<p>J’associe l’appellation “irréductible” a l’idée qu’on ne peut pas trouver de sous-application “cachée” (qui ne soit pas triviale) dans une application $u: E \to E$ : si $E$ admet une partie stable par $u$, alors on peut restreindre $u$ à cette partie et récupérer une “sous-application cachée”.
-Dans le d’espaces vectoriels on considère des sous-espaces stables plutôt que des parties quelconques (autrement on pourrait par exemple considérer le cerle unité, qui est stable par une rotation dans $\R^2$, mais le cercle unité n’hérite pas de la structure d’espae vectoriel, donc la restriction de la rotation n’est plus une application linéaire)</p>
+<p>J’associe l’appellation “irréductible” a l’idée qu’on ne peut pas trouver de sous-application “cachée” (qui ne soit pas triviale) dans une application \(u: E \to E\) : si \(E\) admet une partie stable par \(u\), alors on peut restreindre \(u\) à cette partie et récupérer une “sous-application cachée”.
+Dans le d’espaces vectoriels on considère des sous-espaces stables plutôt que des parties quelconques (autrement on pourrait par exemple considérer le cerle unité, qui est stable par une rotation dans \(\R^2\), mais le cercle unité n’hérite pas de la structure d’espae vectoriel, donc la restriction de la rotation n’est plus une application linéaire)</p>
 
-<p>Et donc on définit l’irréductibilité d’une famille d’applications de $\Hom(E)$ par le fait qu’il n’existe pas de partie stable cachant un famille de sous-applications :<br />
-<strong>Déf.</strong> Une partie $U \subset \Hom(E)$ est dite irréductible si les deux seules parties de $E$ stables par tout les éléments de $U$ sont $E$ et $\emptyset$.</p>
+<p>Et donc on définit l’irréductibilité d’une famille d’applications de \(\Hom(E)\) par le fait qu’il n’existe pas de partie stable cachant un famille de sous-applications :<br />
+<strong>Déf.</strong> Une partie \(U \subset \Hom(E)\) est dite irréductible si les deux seules parties de \(E\) stables par tout les éléments de \(U\) sont \(E\) et \(\emptyset\).</p>
 
 <blockquote>
   <p>Plus il y a d’applications dans une famille, plus elle “a de chances” d’être irréductible.</p>
 
-  <p>Et si on a une famille irréductible $U \subset \Hom(E)$ alors toute famille $U’$ telle que $U \subset U’$ est irréductible.</p>
+  <p>Et si on a une famille irréductible \(U \subset \Hom(E)\) alors toute famille \(U'\) telle que \(U \subset U'\) est irréductible.</p>
 </blockquote>
 
 <h3 id="surjectivité">Surjectivité</h3>
 
-<p>Soient $u \in \Hom(E)$ et $v \in \Hom(F)$ tels que $f \circ u = v \circ f$. On a :
-$$
-	v(f(E)) = f(u(E)) \subset f(E)
-$$</p>
+<p>Soient \(u \in \Hom(E)\) et \(v \in \Hom(F)\) tels que \(f \circ u = v \circ f\). On a :
+\[v(f(E)) = f(u(E)) \subset f(E)\]
+</p>
 
 <p><br /></p>
 
-<p>Et inversement, à partir d’une application $v \in \Hom(E)$ qui vérifie $v(f(E)) \subset f(E)$ on peut définir une fonction $u$ qui satisfait $f \circ u = v \circ f$.<br />
-Soit $x \in E$. On veut que $f(u(x)) = v(f(x))$, et c’est le cas en posant $u(x)$ comme n’importe quel élément de $f^{-1}({v(f(x))})$, qui est non vide on à supposé que $v(f(x)) \in f(E)$, donc il existe $y \in E$ tel que $v(f(x)) = f(y)$, et donc ${y} \subset f^{-1}({v(f(x))})$.</p>
+<p>Et inversement, à partir d’une application \(v \in \Hom(E)\) qui vérifie \(v(f(E)) \subset f(E)\) on peut définir une fonction \(u\) qui satisfait \(f \circ u = v \circ f\).<br />
+Soit \(x \in E\). On veut que \(f(u(x)) = v(f(x))\), et c’est le cas en posant \(u(x)\) comme n’importe quel élément de \(f^{-1}(\{v(f(x))\})\), qui est non vide on à supposé que \(v(f(x)) \in f(E)\), donc il existe \(y \in E\) tel que \(v(f(x)) = f(y)\), et donc \(\{y\} \subset f^{-1}(\{v(f(x))\})\).</p>
 
 <p><br /></p>
 
 <p>Et maintenant la version généralisée du point 2 du lemme de Schur, qui découle sans accrocs :</p>
 <blockquote>
   <p><strong>Prop.</strong>
-	S’il existe une partie irréductible $V \subset \Hom(F)$ telle que
-	$$
-		\forall u \in \Hom(E), \exists v \in V,\; f \circ u = v \circ f
-	$$
-	alors $f$ est surjective ou $E$ est vide.</p>
+	S’il existe une partie irréductible \(V \subset \Hom(F)\) telle que
+	\[\forall u \in \Hom(E), \exists v \in V,\; f \circ u = v \circ f\]
+
+	alors \(f\) est surjective ou \(E\) est vide.</p>
 </blockquote>
 
 <p><strong>Démonstration</strong><br />
-On regarde l’image de $f$. On voit qu’elle est stable par $V$ car pour tout $v \in V$ il existe $u \in \Hom(E)$ tel que
-$$
-	v(f(E)) = f(u(E)) \subset f(E)
-$$
-donc par irréductibilité de $V$ l’image est soit $F$, soit $\emptyset$.
-Or $f(E) = \emptyset$ si et seulement si $E = \emptyset$, et autrement $f$ est injective.</p>
+On regarde l’image de \(f\). On voit qu’elle est stable par \(V\) car pour tout \(v \in V\) il existe \(u \in \Hom(E)\) tel que
+\[v(f(E)) = f(u(E)) \subset f(E)\]
 
-<p>(Le cas de $E = \emptyset$ aurait peut-être pu être écarté en imposant $f$ “non-triviale” à la manière du “$f$ non-nulle” pour les applications linéaires).</p>
+donc par irréductibilité de \(V\) l’image est soit \(F\), soit \(\emptyset\).
+Or \(f(E) = \emptyset\) si et seulement si \(E = \emptyset\), et autrement \(f\) est injective.</p>
+
+<p>(Le cas de \(E = \emptyset\) aurait peut-être pu être écarté en imposant \(f\) “non-triviale” à la manière du “\(f\) non-nulle” pour les applications linéaires).</p>
 
 <p><br /></p>
 
@@ -273,40 +276,38 @@ Or $f(E) = \emptyset$ si et seulement si $E = \emptyset$, et autrement $f$ est i
 <!-- Pour l'injectivité c'est pas aussi simple.
 On va éxhiber un contre exemple à la fin : une fonction $f: E \to F$ qui n'est pas injective mais qui satisfait la version généralisée du point 1. du lemme de Schur. -->
 
-<p>Considérons la relation d’équivalence sur $E$ donnée par $x \sim y \Leftrightarrow f(x) = f(y)$ (l’application $f$ est injective si et seulement si les classes d’équivalences pour cette relation sont des singletons).</p>
+<p>Considérons la relation d’équivalence sur \(E\) donnée par \(x \sim y \Leftrightarrow f(x) = f(y)\) (l’application \(f\) est injective si et seulement si les classes d’équivalences pour cette relation sont des singletons).</p>
 
 <!-- Pour tout $u \in U$ on prend $v \in \Hom(F)$ satisfaisant les hypothèses et on a : -->
-<p>Soient $u \in \Hom(E)$ et $v \in \Hom(F)$ tels que $f \circ u = v \circ f$.</p>
+<p>Soient \(u \in \Hom(E)\) et \(v \in \Hom(F)\) tels que \(f \circ u = v \circ f\).</p>
 
 <p>On a :
-$$
-\begin{align}
+\[\begin{align}
 	x \sim y &amp;\Leftrightarrow f(x) = f(y) \newline
 	         &amp;\Rightarrow (v \circ f)(x) = (v \circ f)(y) \newline
 	         &amp;\Leftrightarrow (f \circ u)(x) = (f \circ u)(y) \newline
 	         &amp;\Leftrightarrow u(x) \sim u(y)
-\end{align}
-$$
-Donc $u$ envoie les classes d’équivalence <em>dans</em> des classes d’équivalence :
-$$
-	\forall C \in E/\hspace{-3pt}\sim, \exists C’ \in E/\hspace{-3pt}\sim,\; u(C) \subset C’
-$$
-(Et étant donné que les classes d’équivalence partitionnent $E$, cela définit un unique $C’$ pour tout $C \in E/\hspace{-3pt}\sim$).</p>
+\end{align}\]
+
+Donc \(u\) envoie les classes d’équivalence <em>dans</em> des classes d’équivalence :
+\[\forall C \in E/\hspace{-3pt}\sim, \exists C' \in E/\hspace{-3pt}\sim,\; u(C) \subset C'\]
+
+(Et étant donné que les classes d’équivalence partitionnent \(E\), cela définit un unique \(C'\) pour tout \(C \in E/\hspace{-3pt}\sim\)).</p>
 
 <p><br /></p>
 
-<p>Et inversement, à partir d’une application $u \in \Hom(E)$ qui vérifie la dernière remarque on peut définir une fonction $v$ qui satisfait $f \circ u = v \circ f$.<br />
-Soit $a \in F$. Il y a deux options:</p>
+<p>Et inversement, à partir d’une application \(u \in \Hom(E)\) qui vérifie la dernière remarque on peut définir une fonction \(v\) qui satisfait \(f \circ u = v \circ f\).<br />
+Soit \(a \in F\). Il y a deux options:</p>
 <ul>
-  <li>$f^{-1}({a}) = \emptyset$ : on pose $v(a) = a$</li>
-  <li>$f^{-1}({a}) \neq \emptyset$.
-On note $C = f^{-1}({a}) \in E/\hspace{-3pt}\sim$ et on prend $C’$ comme définit au dessus (l’unique $C’ \in E/\hspace{-3pt}\sim$ satisfaisant $u(C) \subset C’$).
-On a $C’ = f^{-1}({b})$ avec $b \in F$, et on pose $v(a)$ = $b$.</li>
+  <li>\(f^{-1}(\{a\}) = \emptyset\) : on pose \(v(a) = a\)</li>
+  <li>\(f^{-1}(\{a\}) \neq \emptyset\).
+On note \(C = f^{-1}(\{a\}) \in E/\hspace{-3pt}\sim\) et on prend \(C'\) comme définit au dessus (l’unique \(C' \in E/\hspace{-3pt}\sim\) satisfaisant \(u(C) \subset C'\)).
+On a \(C' = f^{-1}(\{b\})\) avec \(b \in F\), et on pose \(v(a)\) = \(b\).</li>
 </ul>
 
 <p><br /></p>
 
-<p>Ici on voit qu’une famille irréductible de $\Hom(E)$ ne sufira probablement pas à imposer l’injectivité de $f$ car contrairement au cas des espaces vectoriels l’injectivité repose ne repose pas sur la trivialité d’une seule classe d’équivalence (le noyeau).</p>
+<p>Ici on voit qu’une famille irréductible de \(\Hom(E)\) ne sufira probablement pas à imposer l’injectivité de \(f\) car contrairement au cas des espaces vectoriels l’injectivité repose ne repose pas sur la trivialité d’une seule classe d’équivalence (le noyeau).</p>
 
 <p>Je peux donner un exemple.</p>
 
@@ -314,8 +315,8 @@ On a $C’ = f^{-1}({b})$ avec $b \in F$, et on pose $v(a)$ = $b$.</li>
 
 <p>Mais il faut étudier les choses plus proprement si on veut espérer répondre à la question que je pose ensuite.</p>
 
-<aside class="alert alert-question">
-<img alt="" src="/assets/images/callouts/question.svg" class="alert-icon" />  <div>    <p>Est-ce qu’il y a une ou des structures (i.e. catégories ?) “minimales” pour lesquelles l’irréductibilité pour les familles d’endomorphismes de ces catégories suffit pour contraindre $f$ à être injective ? (quasi-groupe ? boucle (quasi-groupe avec un neutre) ? autre ?)</p>
+<aside class="alert alert-question alert-with-icon">
+<img alt="" src="/assets/images/callouts/question.svg" class="alert-icon" />  <div>    <p>Est-ce qu’il y a une ou des structures (i.e. catégories ?) “minimales” pour lesquelles l’irréductibilité pour les familles d’endomorphismes de ces catégories suffit pour contraindre \(f\) à être injective ? (quasi-groupe ? boucle (quasi-groupe avec un neutre) ? autre ?)</p>
 </div>
 </aside>
 
@@ -324,64 +325,63 @@ On a $C’ = f^{-1}({b})$ avec $b \in F$, et on pose $v(a)$ = $b$.</li>
 <ul>
   <li>la commutativité pour la composition n’est pas anodine, et je comprends un peu mieux ce qu’elle veut dire (ici il manquait une flèche au diagramme commutatif (diamond shape) et l’existence d’une flèche pour compléter nous donne des infos)</li>
   <li>approche catégorique plus propre envisageable ? (voir la question concernant l’injectivité)</li>
-  <li>c’est une étude des propriétés imposées par l’existence de familles de diagrammes commutatifs de ces formes là :</li>
+  <li>c’est une étude des propriétés imposées par l’existence de familles de diagrammes commutatifs de ces formes là :
+    <div style="
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      vertical-align: center
+  ">
+      <img src="/assets/diagram_1.svg" /> <img src="/assets/diagram_2.svg" />
+  </div>
+  </li>
 </ul>
-<div class="moveup"></div>
-<div style="
-	width: fit-content;
-	margin-left: auto;
-	margin-right: auto;
-	vertical-align: center
-">
-	<img src="/assets/diagram_1.svg"/> <img src="/assets/diagram_2.svg"/>
-</div>
 
 <h2 id="preuve-du-théorème-sur-les-représentations-dun-groupe-abélien">Preuve du théorème sur les représentations d’un groupe abélien</h2>
 
 <p>Euh, faisons ça vite fait (inspiré de mes souvenirs de wikipédia)</p>
 
-<p>Soir $G$ un groupe abélien, $E$ sur un espace vectoriel <strong>complexe</strong> de dimension finie $n$, et $\rho$ une représentation irréductible de $G$ sur $E$.</p>
+<p>Soir \(G\) un groupe abélien, \(E\) sur un espace vectoriel <strong>complexe</strong> de dimension finie \(n\), et \(\rho\) une représentation irréductible de \(G\) sur \(E\).</p>
 
-<p>Pour tout $g, g’ \in G$ et $\lambda \in \C$ on a :
-$$
-\begin{align}
-	\rho(g’) \circ (\rho(g) - \lambda Id_n) &amp;= \rho(g’) \circ \rho(g) - \rho(g’) \circ \lambda Id_n \newline
-	                                        &amp;= \rho(g) \circ \rho(g’) - \lambda Id_n \circ \rho(g’) \newline
-	                                        &amp;= (\rho(g) - \lambda Id_n) \circ \rho(g’)
-\end{align}
-$$</p>
+<p>Pour tout \(g, g' \in G\) et \(\lambda \in \C\) on a :
+\[\begin{align}
+	\rho(g') \circ (\rho(g) - \lambda Id_n) &amp;= \rho(g') \circ \rho(g) - \rho(g') \circ \lambda Id_n \newline
+	                                        &amp;= \rho(g) \circ \rho(g') - \lambda Id_n \circ \rho(g') \newline
+	                                        &amp;= (\rho(g) - \lambda Id_n) \circ \rho(g')
+\end{align}\]
+</p>
 
-<p>Or la famille $\{\rho(g) \,|\, g \in G \}$ est irréductible, donc d’après le lemme de Schur les applications de la forme $\rho(g) - \lambda Id_n$ sont toutes inversibles ou nulles.</p>
+<p>Or la famille \(\\{\rho(g) \,\|\, g \in G \\}\) est irréductible, donc d’après le lemme de Schur les applications de la forme \(\rho(g) - \lambda Id_n\) sont toutes inversibles ou nulles.</p>
 
-<p>Comme $\C$ est algébriquement clos les applications $\rho(g)$ admettent au moins une valeur propre, que l’on note $\lambda_g$, pour laquelle $\rho(g) - \lambda_g Id_n$ n’est donc pas inversible. Donc pour de telles $\lambda_g$ il ne reste plus que le deuxième cas de figure : l’application $\rho(g) - \lambda_g Id_n$ est nulle.<br />
-Et on a alors $\rho(g) = \lambda_g Id_n$ une homotétie, qui envoie n’importe quel sous-espace de $E$ sur lui-même.
-La représentation n’est donc irréductible que si $n=1$.</p>
+<p>Comme \(\C\) est algébriquement clos les applications \(\rho(g)\) admettent au moins une valeur propre, que l’on note \(\lambda_g\), pour laquelle \(\rho(g) - \lambda_g Id_n\) n’est donc pas inversible. Donc pour de telles \(\lambda_g\) il ne reste plus que le deuxième cas de figure : l’application \(\rho(g) - \lambda_g Id_n\) est nulle.<br />
+Et on a alors \(\rho(g) = \lambda_g Id_n\) une homotétie, qui envoie n’importe quel sous-espace de \(E\) sur lui-même.
+La représentation n’est donc irréductible que si \(n=1\).</p>
 
 <h2 id="ma-première-preuve">Ma première preuve</h2>
 
 <p>Flemme de développer (en fait j’ai développé).</p>
 
-<p>Soit $G$ un groupe abélien, $E$ un espace vectoriel complexe et $\rho$ une représentation de $G$ sur $E$.
-On a que $\rho(G)$ est un sous-groupe abélien de $\GL(E)$.</p>
+<p>Soit \(G\) un groupe abélien, \(E\) un espace vectoriel complexe et \(\rho\) une représentation de \(G\) sur \(E\).
+On a que \(\rho(G)\) est un sous-groupe abélien de \(\GL(E)\).</p>
 
-<p>Montrons que $\rho$ est irréductible seulement si $E$ est de dimension 1.</p>
+<p>Montrons que \(\rho\) est irréductible seulement si \(E\) est de dimension 1.</p>
 
-<p>Prenons $g \in G$ quelconque.</p>
+<p>Prenons \(g \in G\) quelconque.</p>
 
 <ul>
-  <li>les sous espaces propres d’un endomorphisme $u$ sont stables par tous les endomorphismes commutant avec $u$, donc tout espace propre de $\rho(g)$ est stable par $\rho(G)$</li>
-  <li>tout endomorphisme sur un espace vectoriel complexe de dimension fini admet une valeur propre car $\C$ est algèbriquement clos (donc le polynôme caractéristique admet une racine), donc il existe un espace propre non trivial de $\rho(g)$</li>
+  <li>les sous espaces propres d’un endomorphisme \(u\) sont stables par tous les endomorphismes commutant avec \(u\), donc tout espace propre de \(\rho(g)\) est stable par \(\rho(G)\)</li>
+  <li>tout endomorphisme sur un espace vectoriel complexe de dimension fini admet une valeur propre car \(\C\) est algèbriquement clos (donc le polynôme caractéristique admet une racine), donc il existe un espace propre non trivial de \(\rho(g)\)</li>
   <li>deux options:
     <ul>
-      <li>l’espace propre est strcitement inclu dans $E$ : il constitue un sous-espace strict non-trivial de $E$ stable par $\rho(G)$, on a notre sous-représentation qui montre que $\rho$ n’est pas irréductible !</li>
-      <li>l’espace propre recouvre tout $E$ : $\rho(g)$ est une homotétie</li>
+      <li>l’espace propre est strcitement inclu dans \(E\) : il constitue un sous-espace strict non-trivial de \(E\) stable par \(\rho(G)\), on a notre sous-représentation qui montre que \(\rho\) n’est pas irréductible !</li>
+      <li>l’espace propre recouvre tout \(E\) : \(\rho(g)\) est une homotétie</li>
     </ul>
   </li>
-  <li>si le deuxième cas se présente pour tout $g \in G$ alors tous les éléments de $\rho(G)$ sont des homotétie, et n’importe quel sous espace vectoriel de $E$ est donc stable par $\rho(G)$.
+  <li>si le deuxième cas se présente pour tout \(g \in G\) alors tous les éléments de \(\rho(G)\) sont des homotétie, et n’importe quel sous espace vectoriel de \(E\) est donc stable par \(\rho(G)\).
     <ul>
-      <li>si $\dim(E) \geq 2$ on peut prendre un sous-espace strict non trivial de $E$ pour montrer que $\rho(g)$ pour montrer que $\rho$ n’est pas irréductible (n’importe quel sous-espace de dimension 1 fait l’affaire par exemple)</li>
-      <li>si $\dim(E) = 1$ tout sous-espace strict est trivial donc $\rho$ est irréductible (c’est un résultat général : toute représentation de degré 1 est irréductible)</li>
-      <li>si $\dim(E) = 0$ alors $\rho$ est trivial, donc pas considérée irréductible</li>
+      <li>si \(\dim(E) \geq 2\) on peut prendre un sous-espace strict non trivial de \(E\) pour montrer que \(\rho(g)\) pour montrer que \(\rho\) n’est pas irréductible (n’importe quel sous-espace de dimension 1 fait l’affaire par exemple)</li>
+      <li>si \(\dim(E) = 1\) tout sous-espace strict est trivial donc \(\rho\) est irréductible (c’est un résultat général : toute représentation de degré 1 est irréductible)</li>
+      <li>si \(\dim(E) = 0\) alors \(\rho\) est trivial, donc pas considérée irréductible</li>
     </ul>
   </li>
 </ul>
@@ -402,14 +402,20 @@ On a que $\rho(G)$ est un sous-groupe abélien de $\GL(E)$.</p>
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li class="p-name">Elias Garcia--Naze</li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/luneares"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">luneares</span></a></li></ul>
+          <li class="p-name">Elias Garcia--Naze</li></ul><ul class="social-media-list"><li><a href="https://github.com/LuneAres"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">LuneAres</span></a></li></ul>
 </div>
 
+      <div class="footer-col footer-col-2">
+        <a href="/license.html">Licence et remerciements</a>
+        <a href="/mentions_legales.html">Mentions légales</a>
+        <!-- <p xmlns:cc="http://creativecommons.org/ns#" >
+          Le contenu de ce site est autant que possible soumis à la licence
+          <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1" alt=""></a>
+        </p> -->
+      </div>
+
       <div class="footer-col footer-col-3">
-        <p>Un petit blog de maths</p>
+        <p>Un petit blog de maths pour raconter ce que je fais pendant mon stage</p>
       </div>
     </div>
 
