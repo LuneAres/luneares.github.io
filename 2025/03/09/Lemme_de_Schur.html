@@ -56,7 +56,9 @@
       https://docs.mathjax.org/en/latest/input/tex/macros.html
     -->
     <div style="display:none">
-    $$\newcommand{\N}{\mathbb{N}}
+    $$% 
+
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
@@ -66,7 +68,11 @@
 \newcommand{\L}{\mathcal{L}}
 
 \DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\GL}{GL}$$
+\DeclareMathOperator{\GL}{GL}
+
+\newcommand{\tini}[1]{{{}_{#1}}}
+
+% $$
     </div></head>
 <body><header class="site-header" role="banner">
 
@@ -94,8 +100,8 @@
       Lemme de Schur
     </h1>
     <h2 class="post-subtitle p-name" itemprop="alternativeHeadline">et représentations irréductibles sur un espace vectoriel complexe de dimension finie</h2>
-    <p class="post-meta">
-      <time class="dt-published" datetime="2025-03-09T00:00:00+01:00" itemprop="datePublished">Mar 9, 2025
+    <p class="post-meta"><strong>Avancement :</strong> il manque une relecture et un cleanup
+        <br/><time class="dt-published" datetime="2025-03-09T00:00:00+01:00" itemprop="datePublished">Mar 9, 2025
       </time></p>
   </header>
 
@@ -127,21 +133,6 @@
 <p>D’abord je donne le lemme et la démo, qui est rapide, puis j’élabore sur ce que je vois derrière ce lemme.<br />
 Et en bonus à la fin je donne une preuve du résultat qui utilise le lemme, puis la première preuve que j’avais trouvée.<br />
 (Le lemme ne nécessite pas de concepts de théorie des représentations, c’est juste le résultat final qui vient y ajouter ce vocabulaire.)</p>
-
-<ol>
-  <li><a href="#intro">Introduction</a></li>
-  <li><a href="#schur">Le lemme de Schur</a></li>
-  <li><a href="#hum">Réflexions sur le lemme de Schur</a>
-    <ol>
-      <li><a href="#hum:irred">Famille irréductible</a></li>
-      <li><a href="#hum:surj">Surjectivité</a></li>
-      <li><a href="#hum:inj">Injectivité</a></li>
-      <li><a href="#hum:recap">Preuve du théorème sur les représentations d’un groupe abélien</a></li>
-    </ol>
-  </li>
-  <li><a href="#preuve">Preuve du théorème sur les représentations d’un groupe abélien</a></li>
-  <li><a href="#premiere_preuve">Ma première preuve</a></li>
-</ol>
 
 <h2 id="le-lemme-de-schur">Le lemme de Schur</h2>
 
@@ -262,11 +253,12 @@ On regarde l’image de \(f\). On voit qu’elle est stable par \(V\) car pour t
 donc par irréductibilité de \(V\) l’image est soit \(F\), soit \(\emptyset\).
 Or \(f(E) = \emptyset\) si et seulement si \(E = \emptyset\), et autrement \(f\) est injective.</p>
 
-<p>(Le cas de \(E = \emptyset\) aurait peut-être pu être écarté en imposant \(f\) “non-triviale” à la manière du “\(f\) non-nulle” pour les applications linéaires).</p>
+<aside class="alert alert-note">
+  <div>    <p>Le cas de \(E = \emptyset\) aurait peut-être pu être écarté en imposant \(f\) “non-triviale” à la manière du “\(f\) non-nulle” pour les applications linéaires.</p>
+</div>
+</aside>
 
-<p><br /></p>
-
-<aside class="alert alert-important">
+<aside class="alert alert-todo">
   <div>    <p>Qu’est-ce qu’il se passe lorsqu’on amène des applications linéaires ? Faire proprement le lien.</p>
 </div>
 </aside>
@@ -351,7 +343,7 @@ On a \(C' = f^{-1}(\{b\})\) avec \(b \in F\), et on pose \(v(a)\) = \(b\).</li>
 \end{align}\]
 </p>
 
-<p>Or la famille \(\\{\rho(g) \,\|\, g \in G \\}\) est irréductible, donc d’après le lemme de Schur les applications de la forme \(\rho(g) - \lambda Id_n\) sont toutes inversibles ou nulles.</p>
+<p>Or la famille \(\{\rho(g) \,|\, g \in G \}\) est irréductible, donc d’après le lemme de Schur les applications de la forme \(\rho(g) - \lambda Id_n\) sont toutes inversibles ou nulles.</p>
 
 <p>Comme \(\C\) est algébriquement clos les applications \(\rho(g)\) admettent au moins une valeur propre, que l’on note \(\lambda_g\), pour laquelle \(\rho(g) - \lambda_g Id_n\) n’est donc pas inversible. Donc pour de telles \(\lambda_g\) il ne reste plus que le deuxième cas de figure : l’application \(\rho(g) - \lambda_g Id_n\) est nulle.<br />
 Et on a alors \(\rho(g) = \lambda_g Id_n\) une homotétie, qui envoie n’importe quel sous-espace de \(E\) sur lui-même.

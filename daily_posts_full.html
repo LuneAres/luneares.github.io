@@ -55,7 +55,9 @@
       https://docs.mathjax.org/en/latest/input/tex/macros.html
     -->
     <div style="display:none">
-    $$\newcommand{\N}{\mathbb{N}}
+    $$% 
+
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
@@ -65,7 +67,11 @@
 \newcommand{\L}{\mathcal{L}}
 
 \DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\GL}{GL}$$
+\DeclareMathOperator{\GL}{GL}
+
+\newcommand{\tini}[1]{{{}_{#1}}}
+
+% $$
     </div></head>
 <body><header class="site-header" role="banner">
 
@@ -172,6 +178,66 @@ Je m’en rappelle vaguement mais c’était un truc du style “Si t’as un mo
 <p>J’ai plus ou moins en tête quelques propriétés qu’il m’avait données pour souligner l’intérêt du Lemme de Schur en théorie des représentations et qui pourront servir d’indices pour démêler tout ça. Normalement je me penche dessus et j’en reparle demain, mais là je vais au lit (ça fait quelques jours que je me couche bien tard, on va essayer de se remettre sur un rythme raisonnable)</p>
 
 <p>(Au final j’ai remarqué des fichiers que j’aurais pas dû commit, du coup j’ai passsé ~2h à apprendre à réécrire un historique git, et je me suis pas couché aussitôt que prévu, mais ça va encore)</p>
+
+      </div>
+    </article><article class="post h-entry">
+      <header class="post-header">
+        <time class="dt-published dailypost-date" datetime="2025-04-21T00:00:00+02:00">Mon, Apr 21, 2025
+        </time>
+        <h2 class="dailypost-title p-name">Quelques trucs sur le lemme de Schur</h2>
+      </header>
+
+      <div class="post-content e-content">
+        <p>Ok, j’ai retrouvé les résultats que clément m’avait donnés dont j’ai parlé hier qui utilisent le <a href="/2025/03/09/Lemme_de_Schur.html">lemme de Schur</a>.</p>
+
+<p>Pour la suite on prend \(G\) un groupe, \(V\) et \(W\) deux espaces vectoriels de dimension finie sur un corps \(\k\), associés à \(\rho_\tini{V}\) et \(\rho_\tini{W}\) deux représentations de \(G\) sur \(V\) et \(W\) respectivement.</p>
+
+<p>On note \(\Hom_G(V,W)\) l’ensemble des morphismes de représentation de \((V,\rho_\tini{V})\) vers \((W,\rho_\tini{W})\). C’est à dire des applications linéaires compatibles avec les représentations :
+\[\Hom_G(V,W) :=
+\bigg\{
+	m \in \L(V, W) \,\bigg|\,
+	\forall g \in G,\, \underbrace{\forall v \in V,\; \rho_\tini{W}\!(g)[m(v)] = m(\rho_\tini{V}\!(g)[v])}_{\rho_\tini{W}\!(g) \circ m \,=\, m \circ \rho_\tini{V}\!(g)}
+\bigg\}\]
+
+De plus on note \(\Hom_G(V) := \Hom_G(V,V)\) les morphismes de \((V,\rho_\tini{V})\) dans lui même.</p>
+
+<aside class="alert alert-note">
+  <div>    <p>Je viens vraiment de commencer à me rendre compte il y a pas longtemps qu’en fait “être compatible avec” c’est assez proche de “commuter avec” (je vais développer (peut-être))</p>
+</div>
+</aside>
+
+<p>Avant d’énoncer nos quelques résultats, notons que \(\Hom_G(V,W)\) est un sous-espace vectoriel de \(\L(V,W)\) :
+\[\begin{align*}
+	(m_1 + \lambda m_2) \circ \rho_\tini{V}(g) &amp;= m_1 \circ \rho_\tini{V}(g) + \lambda (m_2 \circ \rho_\tini{V}(g)) \\
+	                                           &amp;= \rho_\tini{V}(g) \circ m_1 + \lambda (\rho_\tini{V}(g) \circ m_2) \\
+	                                           &amp;= \rho_\tini{V}(g) \circ (m_1 + \lambda m_2)
+\end{align*}\]
+</p>
+
+<p>On a plusieurs résultats cool (au final j’en donne qu’un parce qu’il est tard)</p>
+
+<blockquote>
+  <p>Si \((V, \rho_v)\) est irréductible et que \(\k\) est algèbriquement clos alors les éléments de \(\Hom_G(V)\) sont les homotéties.</p>
+</blockquote>
+
+<aside class="alert alert-note">
+  <div>    <p>Autrement dit : on a \(\Hom_G(V) \cong \C\), ou \(\dim \Hom_G(V) = 1\) <br />
+(c’est équivalent car les homotéties sont toujours dans \(\Hom_G(V)\))</p>
+</div>
+</aside>
+
+<p><strong>Preuve.</strong></p>
+
+<p>Soit \(m \in \Hom_G(V)\).</p>
+
+<p>Pour tout \(g \in G\) on a \(\rho(g) \circ m = \rho(g)\) donc comme \((V, \rho_v)\) est irréductible donc d’après le lemme de Schur \(m\) est soit inversible soit nulle. <br />
+Mais on a mieux que ça : pour tout \(\lambda \in \k\) on a \(\rho(g) \circ (m - \lambda Id_V) = (m - \lambda Id_V) \circ \rho(g)\) donc à nouveau, d’après le lemme de Schur les applications de la forme \(m - \lambda Id_V\) sont toutes soit inversible soit nulles.</p>
+
+<p>Or si on prend \(\k\) algèbriquement clos alors le polynôme caractéristique \(\det(m - X Id_V)\) admet une racine \(\lambda_m \in \k\), pour laquelle \(m - \lambda_m Id_V\) n’est pas inversible, donc nulle d’après ce qu’on a dit plus haut. On a alors \(m = \lambda_m Id_V\), une homotétie.</p>
+
+<p>Or les homotéties sont bien toujours dans \(\Hom_G(V)\) car elles commutent avec tout les endomorphismes, donc en particulier avec les \(\rho_\tini{V}\!(g)\).   \(\square\)</p>
+
+<p>Bon, je m’arrête là pour ce soir, bye bye.</p>
 
       </div>
     </article>
