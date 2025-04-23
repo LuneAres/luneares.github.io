@@ -56,6 +56,7 @@
     -->
     <div style="display:none">
     $$% 
+\usepackage[latin1]{inputenc}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -226,18 +227,150 @@ De plus on note \(\Hom_G(V) := \Hom_G(V,V)\) les morphismes de \((V,\rho_\tini{V
 </div>
 </aside>
 
-<p><strong>Preuve.</strong></p>
+<p><strong>Preuve.</strong><br />
+Soit \(m \in \Hom_G(V)\).</p>
 
-<p>Soit \(m \in \Hom_G(V)\).</p>
-
-<p>Pour tout \(g \in G\) on a \(\rho(g) \circ m = \rho(g)\) donc comme \((V, \rho_v)\) est irréductible donc d’après le lemme de Schur \(m\) est soit inversible soit nulle. <br />
+<p>Pour tout \(g \in G\) on a \(\rho_\tini{V}(g) \circ m = m \circ \rho_\tini{V}(g)\) donc comme \((V, \rho_\tini{V})\) est irréductible donc d’après le lemme de Schur \(m\) est soit inversible soit nulle. <br />
 Mais on a mieux que ça : pour tout \(\lambda \in \k\) on a \(\rho(g) \circ (m - \lambda Id_V) = (m - \lambda Id_V) \circ \rho(g)\) donc à nouveau, d’après le lemme de Schur les applications de la forme \(m - \lambda Id_V\) sont toutes soit inversible soit nulles.</p>
 
 <p>Or si on prend \(\k\) algèbriquement clos alors le polynôme caractéristique \(\det(m - X Id_V)\) admet une racine \(\lambda_m \in \k\), pour laquelle \(m - \lambda_m Id_V\) n’est pas inversible, donc nulle d’après ce qu’on a dit plus haut. On a alors \(m = \lambda_m Id_V\), une homotétie.</p>
 
-<p>Or les homotéties sont bien toujours dans \(\Hom_G(V)\) car elles commutent avec tout les endomorphismes, donc en particulier avec les \(\rho_\tini{V}\!(g)\).   \(\square\)</p>
+<p>Or les homotéties sont bien toujours dans \(\Hom_G(V)\) car elles commutent avec tout les endomorphismes, donc en particulier avec les \(\rho_\tini{V}\!(g)\).
+   \(\square\)</p>
 
 <p>Bon, je m’arrête là pour ce soir, bye bye.</p>
+
+      </div>
+    </article><article class="post h-entry">
+      <header class="post-header">
+        <time class="dt-published dailypost-date" datetime="2025-04-21T00:00:00+02:00">Mon, Apr 21, 2025
+        </time>
+        <h2 class="dailypost-title p-name">Suite d&#39;hier</h2>
+      </header>
+
+      <div class="post-content e-content">
+        <p>Je continue sur ma lancée d’hier sur les résultats dûs au lemme de Schur.</p>
+
+<p>Comme hier on prend \(G\) un groupe, \(V\) et \(W\) deux espaces vectoriels de dimension finie sur un corps \(\k\), associés à \(\rho_\tini{V}\) et \(\rho_\tini{W}\) deux représentations de \(G\) sur \(V\) et \(W\) respectivement.</p>
+
+<p>On note \(\Hom_G(V,W)\) l’ensemble des morphismes de représentation de \((V,\rho_\tini{V})\) vers \((W,\rho_\tini{W})\), et \(\Hom_G(V) := \Hom_G(V,V)\) les morphismes de \((V,\rho_\tini{V})\) dans lui même.</p>
+
+<p>Je le dis explicitement ici, dans la suite on va écrire \(V\) à la place de \((V, \rho_\tini{V})\), et pareil pour les autres représentations (c’est déjà ce que je faisais pour les ensembles de morphismes \(\Hom_G(V,W)\) mais là je vais le faire partout pour alléger)<br />
+Par exemple, écrire \(V \cong W\) revient à dire que \(\Hom_G(V,W)\) contient une application inversible.</p>
+
+<blockquote>
+  <p>Si \(V\) et \(W\) sont irréductibles alors</p>
+
+\[\Hom_G(V,W) \cong
+	\begin{cases}
+		\Hom_G(V) &amp;\text{ si } V \cong W \\
+		\{0_\k\} &amp;\text{ sinon}
+	\end{cases}\]
+</blockquote>
+
+<aside class="alert alert-note">
+  <div>    <p>Et si \(\k\) est algébriquement clos on a \(\Hom_G(V) \cong \C\) (ou \(\dim \Hom_G(V) = 1\)). (voir hier)</p>
+
+    <p>Dans ce cas si \(V\) et \(W\) sont irréductibles on peut regarder la dimension de \(\Hom_G(V,W)\) pour savoir si elles sont isomorphes ou pas.</p>
+
+    <p>Et dans l’autre sens : si \(\Hom_G(V,W) \geq 2\) alors on sait qu’au moins une des deux représentations (\(V\) ou \(W\)) est réductible.</p>
+</div>
+</aside>
+
+<p><strong>Preuve.</strong><br />
+Pour le premier point il suffit de dire que \(\Hom_G(V,W)\) est isomorphe (en tant qu’espace vectoriel) à \(\Hom_G(V',W')\) pour tout \((V', \rho_\tini{V'})\) et \((W', \rho_\tini{W'})\) tels que \(V \cong V'\) et \(W \cong W'\).<br />
+Prenons \(\phi_\tini{V}: V \to V'\) et  \(\phi_\tini{W}: W \to W'\) deux isomorphisme, alors pour tout \(m \in \Hom_G(V,W)\) on définit \(\psi(m) :=  \phi_\tini{W} \circ m \circ \phi_\tini{V}^{-1} \in \Hom_G(V',W')\).<br />
+C’est une application linéaire (par distributivité de la composition sur la multiplication, et assocaitivité de la composition avec la multiplication par un scalaire) d’inverse \(m' \mapsto \phi_\tini{W}^{-1} \circ m \circ \phi_\tini{V}\), donc \(\psi\) donne bien un isomorphisme \(\Hom_G(V,W)\) vers \(\Hom_G(V',W')\).</p>
+
+<p>Pour le second point on applique le lemme de Schur.<br />
+Pour tout \(m \in \Hom_G(V,W)\) on a par définition de \(\Hom_G(V,W)\) que \(\forall g \in G, \rho_\tini{W}(g) \circ m = m \circ \rho_\tini{V}(g)\), donc comme \(V\) est irréductible d’après le lemme de Schur on a que \(m\) est injective ou nulle, et comme \(W\) est irréductibles on a que \(m\) est surjective ou nulle.<br />
+Donc finalement, \(m\) est bijective ou nulle.<br />
+Or si \(m\) est bijective, alors on a notre isomorphisme de représentation entre \(V\) et \(W\), donc en fait on est dans le premier cas.
+Donc \(m\) est nulle.
+   \(\square\)</p>
+
+<p>Le résultat suivant est l’extension du précédent quand on s’autorise qu’une des deux représentations (disons \(W\)) ne soit pas forcément irréductible mais quand même “complètement réductible” (c’est à dire décomposable en somme directe de représentations irréductible).</p>
+<blockquote>
+  <p>Si \(V\) est irréductible et \(W = \bigoplus_{i=1}^n W_i\) où tous les \(W_i\) irréductibles (avec les \(\rho_\tini{W_i}\) induits par \(\rho_\tini{W}\)) alors</p>
+
+  <p>\[\Hom_G(V,W) \cong \Hom_G(V)^m\]
+
+avec \(m\) le nombre de \(i\) tels que \(V \cong W_i\).</p>
+</blockquote>
+
+<aside class="alert alert-note">
+  <div>    <p>Par passage au dual on a \(\Hom_G(V,W) \cong \Hom_G(W,V)\), donc le résultat peut s’énoncer dans l’autre sens.</p>
+
+    <p>Effectivement, on considère la représentation \((V^*, \rho_\tini{V}^*)\) où \(\rho_\tini{V}^*(g)[v^T] = \big(\rho_\tini{V}(g^{-1})[v]\big)^T\) pour tout \(v^T \in V^*\).<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup><br />
+On a alors \(V \cong V^*\) (isomorphisme de représentations), et de la même manière \(W \cong W^*\).<br />
+Donc on a \(\Hom_G(W^*, V^*) \cong \Hom_G(W,V)\).</p>
+
+    <p>Et on a l’isomorphisme \(\Hom_G(V,W) \cong \Hom_G(W^*,V^*)\) donné par \(m \mapsto m^T\).</p>
+</div>
+</aside>
+
+<p><strong>Preuve.</strong><br />
+Du coup on reprend la preuve précédente, et on voit déjà que le premier point (\(V \cong W\)) est impossible car \(V\) est irréductible et \(W\) non (tout sous-espace de \(V\) stable par \(G\) est envoyé sur un sous-espace de \(W\) stable par \(G\) par un isomorphisme de représentations, donc “être irréductible” est bien une propriété qui passe à l’isomorphisme).</p>
+
+<p>De son côté le second point est transformé : cette fois ci tout \(m \in \Hom_G(V,W)\) est seulement injectif ou nul.<br />
+Mais ce qu’on peut regarder c’est les \(m_i := p_i \circ m \in \Hom_G(V,W_i)\) pour tout \(i\) (où est les \(p_i: W \to W_i\) sont les projections selon la décomposition de \(W\)).<br />
+Ces applications décrivent entièrement \(m\) :
+\[m = \sum_{i=1}^n m_i\]
+</p>
+
+<p>Et en fait on se rend compte que toute combinaison de \(m_i \in \Hom_G(V,W_i)\) définit un unique morphisme \(\sum_{i=1}^n m_i \in \Hom_G(V,W)\).<br />
+Autrement dit :
+\[\Hom_G(V,W) = \bigoplus_{i=1}^n \Hom_G(V,W_i)\]
+</p>
+
+<p>Ensuite on applique la propriété démontrée avant : pour tout \(i\) on a \(\Hom_G(V,W_i) \cong \Hom_G(V)\) si \(V \cong W_i\), et \(\Hom_G(V,W_i) \cong \{0_\k\}\) sinon.
+Ce qui amène bien à
+\[\begin{align*}
+	\Hom_G(V,W) &amp;\cong \bigoplus_{i \text { tel que } V \cong W_i} \Hom_G(V) \\
+	            &amp;\cong \Hom_G(V)^m
+\end{align*}\]
+
+avec \(m\) le nombre de \(i\) tels que \(V \cong W_i\).
+   \(\square\)</p>
+
+<aside class="alert alert-note">
+  <div>    <p>Et encore une fois, si \(\k\) est algèbriquement clos on peut se contenter de regarder les dimensions.</p>
+</div>
+</aside>
+
+<p><br /></p>
+
+<hr />
+
+<p><br /></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>On met \(g^{-1}\) et pas \(g\) (on aurait aussi pu mettre le “-1” sur l’automorphisme : \(\rho_\tini{V}(g)^{-1}\) pour compenser le fait que le passage au dual est contravariant et bien avoir une représentation sur \(V\).<br />
+Autrement l’ordre de la composition dans \(\GL(V)\) de correspondrait pas à l’ordre de la multiplication dans \(G\) :</p>
+
+\[\begin{align*}
+	\rho_\tini{V}^*(gg')[v^T] &amp;= \big(\rho_\tini{V}(gg')[v]\big)^T                                       \\
+	                          &amp;= \big(\rho_\tini{V}(g)[v] \circ \rho_\tini{V}(g')[v] \big)^T             \\
+	                          &amp;= \big(\rho_\tini{V}(g')[v]\big)^T \circ \big(\rho_\tini{V}(g)[v]\big)^T  \\
+	                          &amp;= \rho_\tini{V}^*(g')[v^T] \circ \rho_\tini{V}^*(g)[v^T]
+\end{align*}\]
+
+      <aside class="alert alert-question">
+        <div>          <p>Ok, là il y a probablement un concept de base du style “on a applique un foncteur contravariant, donc ça retourne les flèches, mais comme toutes les flèches qu’on regarde sont inversibles (et qu’on regarde aussi leur inverse), alors on qu’à ajouter un passage à l’inverse en même temps que l’application du foncteur contravariant comme ça on récupère un foncteur covariant” (après, parler du fait que le passage au dual est un foncteur c’est un peu too much quand on regarde les flèches seulement de \(V\) dans \(V\), non ?)</p>
+
+          <aside class="alert alert-note">
+            <div>              <p>Oh, c’est rigolo, en fait on peut faire agir un groupe sur un élément \(A\) d’une autre catégorie que les espaces vectoriels (après eux on les aime bien vu qu’on les connaît bien), puis passer \(A\) dans un foncteur \(F\), ce qui l’envoie sur un élément d’une autre catégorie.<br />
+Si le foncteur est covariant ça transforme notre action en une action sur \(F(A)\), et si le foncteur est contravariant pour récupérer une action du même côté (gauche/droite) il suffit de retourner les flèches de notre action après qu’elle soit passée dedans (vu qu’on regarde l’action d’un groupe les flèches sont inversibles).</p>
+</div>
+          </aside>
+</div>
+      </aside>
+      <p><a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
       </div>
     </article>
