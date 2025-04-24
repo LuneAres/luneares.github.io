@@ -57,7 +57,6 @@
     -->
     <div style="display:none">
     $$% 
-\usepackage[latin1]{inputenc}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -70,6 +69,7 @@
 
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Id}{Id}
 
 \newcommand{\tini}[1]{{{}_{#1}}}
 
@@ -114,8 +114,22 @@
 
 <p>Le dernier point clé c’est que “avoir la même différentielle” est une propriété des fonctions sur la variété qui ne dépend pas de la carte qu’on utilise. On peut donc quotienter les chemins dans \(\R^n\) par cette propriété, définir la différentielle comme agissant sur le quotient (muni d’une structure s’espace vectoriel qui va bien, qui se trouve isomorphe à \(\R^n\)), et utiliser n’importe quelle carte pour faire remonter le quotient à une partition des chemins dans la variété (hop, encore une fois muni de la structure d’espace vectoriel qui va bien (ce coup ci il faut faire gaffe à ce que la structure ne dépende pas de la carte)), qui peut nous servir d’espace tangent pour définir la différentielle de manière indépendante de la carte !</p>
 
-<p>Je me suis amusé à en faire ce superbe diagramme inbuvable (que j’espère vrai, outre mes notations pas très conventionnelles et l’utilisation probablement approximative du <em>pushforward</em>) :
-<img style="display: block; margin: auto;" src="/assets/daily_posts/2025-04-17/differentiation_manifold.svg " />
+<p>Je me suis amusé à en faire ce superbe diagramme inbuvable (que j’espère vrai, outre mes notations pas très conventionnelles et l’utilisation probablement approximative du <em>pushforward</em>) :</p>
+
+<aside class="alert alert-warning alert-with-icon">
+<img alt="" src="/assets/images/callouts/warning.svg" class="alert-icon" />  <div>    <p>Correction apportée une semaine plus tard :<br />
+Le diagramme n’est pas vraiment commutatif parce que les trois flèches de la deuxième ligne vers la troisième ne devraient pas être des vraies flèches. C’est un “passage à la dérviée” : au dessus on a la fonction \(f\) et sa version poussée par la carte (\(\psi_*f\)), et en dessous on a la dérivée de \(\psi_*f\).<br />
+Donc on ne devrait pas accrocher les deux (là si le diagramme commutait ça voudrait dire que la dérivée de \(\psi_*f\) est une extension de \(\psi_*f\) à tout \(\R^n\), ce qui n’est pas vraiment l’idée)</p>
+
+    <aside class="alert alert-note">
+      <div>        <p>Dans tous les cas le diagramme reste très obscur.<br />
+Idéalement je ferai un post sur la construction d’une variété, de l’espace tangent, et de la différentielle d’une fonction entre variétés.</p>
+</div>
+    </aside>
+</div>
+</aside>
+
+<p><img style="display: block; margin: auto;" src="/assets/daily_posts/2025-04-17/differentiation_manifold.svg " />
 <!-- 
 https://q.uiver.app/#q=WzAsMjYsWzAsMiwiVSJdLFswLDQsIlxcUl5tIl0sWzIsMiwiXFxwc2koVSkgXFxzdWJzZXQgXFxSXm4iXSxbMiwwLCJKIFxcc3Vic2V0IFxcUiJdLFsxMCwyLCJVIl0sWzEwLDQsIlxccHNpKFUpIFxcc3Vic2V0IFxcUl5uIl0sWzgsNiwiXFxSIl0sWzE3LDIsIlUnIl0sWzE3LDAsIlxcUl5uIl0sWzE5LDIsIlxccHNpJyhVJykgXFxzdWJzZXQgXFxSXm0iXSxbMTksNCwiXFxSIl0sWzEwLDYsIlxcUl5uIl0sWzksOCwiXFxtYXRoY2Fse0N9XlxcaW5mdHlfezAgXFxtYXBzdG8gXFxwc2koeCl9KFxcUixcXFJebikiXSxbMyw3LCJcXHRleHR7YXZlYyB9IFxcbWF0aGNhbHtDfV5cXGluZnR5X3swIFxcbWFwc3RvIFxccHNpKHgpfShcXFIsXFxSXm4pIFxcdGV4dHsgbGVzIGZvbmN0aW9ucyBkZSB9IFxcUiBcXHRleHR7IGRhbnMgfSBcXFJebiBcXHRleHR7IHF1aSB2YWxlbnQgfSBcXHBzaSh4KSBcXHRleHR7IGVuIDAgZXQgc29udCBsaXNzZXMgZW4gMH0iXSxbOCw4LCJcXG1hdGhjYWx7Q31eXFxpbmZ0eV97MCBcXG1hcHN0byBcXHBzaSh4KX1cXGJpZyhcXFIsXFxwc2koVSlcXGJpZykiXSxbNiw4LCJcXG1hdGhjYWx7Q31eXFxpbmZ0eV97MCBcXG1hcHN0byB4fShcXFIsVSkiXSxbOCw0LCJcXFIiXSxbMTMsNCwiXFxSXm0iXSxbMTMsMiwiXFxSXm0iXSxbMTMsNiwiXFxSXm0iXSxbMTAsMTAsIlxcbWF0aGNhbHtDfV5cXGluZnR5X3swIFxcbWFwc3RvIFxccHNpKHgpfShcXFIsXFxSXm4pIC8gXFxzaW0iXSxbOCwxMCwiXFxtYXRoY2Fse0N9XlxcaW5mdHlfezAgXFxtYXBzdG8gXFxwc2koeCl9XFxiaWcoXFxSLFxccHNpKFUpXFxiaWcpIC8gXFxzaW0iXSxbNiwxMCwiXFxtYXRoY2Fse0N9XlxcaW5mdHlfezAgXFxtYXBzdG8geH0oXFxSLFUpIC8gXFxzaW0iXSxbNCw4LCJcXG1hdGhjYWx7Q31eXFxpbmZ0eV97MCBcXG1hcHN0byB4fShcXFIsTSkiXSxbNCwxMCwiVF94KE0pID0gXFxtYXRoY2Fse0N9XlxcaW5mdHlfezAgXFxtYXBzdG8geH0oXFxSLE0pIC8gXFxzaW0iXSxbNCwxMiwiXFxSXm0iXSxbMCwyLCJcXHBzaSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFswLDEsImYiLDJdLFsyLDEsIlxccHNpXypmID0gZiBcXGNpcmMgXFxwc2leey0xfSJdLFszLDIsIlxcZ2FtbWFfYTogdCBcXG1hcHN0byBcXHBzaSh4KSArIGF0Il0sWzMsMCwiXFxwc2leKmYgPSBcXHBzaSBcXGNpcmMgXFxnYW1tYV9hIiwyXSxbNCw1LCJcXHBzaSIsMl0sWzgsNywiZiIsMl0sWzcsOSwiXFxwc2knIiwyXSxbOCw5LCJcXHBzaV8qZiJdLFs3LDEwLCJcXHBzaV4qIFxccGlfYSIsMl0sWzksMTAsIlxccGlfYTogXFxsYW1iZGEgYSBcXG9wbHVzIHggXFx0byBcXGxhbWJkYSJdLFs1LDExLCIiLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFsxMiwxMSwiXFxnYW1tYSBcXG1hcHN0byBcXGZyYWN7ZH17ZHR9XFxiaWd8X3t0PTB9IFxcZ2FtbWEodCkiLDIseyJjdXJ2ZSI6MSwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzE0LDEyLCJpXzEiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFs2LDExLCJcXGdhbW1hX2EiLDFdLFs2LDE2LCIiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9fX1dLFsxNiw1LCJcXGdhbW1hX2EiLDFdLFsxNiw0XSxbNSwxNywiKFxccHNpXypmKSA9IGYgXFxjaXJjIFxccHNpXnstMX0iLDJdLFs0LDE4LCJmIiwxXSxbMTgsMTcsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFsxNywxOSwiIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiYXJyb3doZWFkIn19fV0sWzExLDE5LCJkX3tcXHBzaSh4KX0oXFxwc2lfKmYpIiwyXSxbMTQsMjEsIlxccGkiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMTUsMjIsIlxccGkiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMjEsMjAsIlxccGlfKmlfMSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxNSwyMywiaV8yIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMjMsMjQsIlxccGkiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMjIsMjQsIlxccGlfKmlfMiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsyNCwyNSwiZF97XFxwc2koeCl9KFxccHNpXypmKSBcXGNpcmMgXFxtdV57LTF9IFxcY2lyYyBcXHBpXyppXzEgXFxjaXJjIFxccGlfKlxccHNpXyogXFxjaXJjIChcXHBpXyppXzIpXnstMX0iXSxbMTIsMjAsIlxccGkiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMTEsMTIsImEgXFxtYXBzdG8gXFxnYW1tYV9hIiwyLHsiY3VydmUiOjEsInN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzExLDIwLCJcXG11OiBhIFxcbWFwc3RvIFxccGkoXFxnYW1tYV9hKSIsMCx7ImN1cnZlIjotMywic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzE1LDE0LCJcXHBzaV8qOiBcXGdhbW1hIFxcbWFwc3RvIFxccHNpIFxcY2lyYyBcXGdhbW1hIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzIyLDIxLCJcXHBpXypcXHBzaV8qIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzExLDQwLCIiLDIseyJvZmZzZXQiOjEsImN1cnZlIjoyLCJzaG9ydGVuIjp7InRhcmdldCI6MTB9LCJsZXZlbCI6MSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoic3F1aWdnbHkifX19XSxbNDAsMTIsIiIsMCx7Im9mZnNldCI6MSwiY3VydmUiOjEsInNob3J0ZW4iOnsic291cmNlIjoxMH0sImxldmVsIjoxLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
 --></p>

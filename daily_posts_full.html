@@ -56,7 +56,6 @@
     -->
     <div style="display:none">
     $$% 
-\usepackage[latin1]{inputenc}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -69,6 +68,7 @@
 
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Id}{Id}
 
 \newcommand{\tini}[1]{{{}_{#1}}}
 
@@ -112,8 +112,22 @@
 
 <p>Le dernier point clé c’est que “avoir la même différentielle” est une propriété des fonctions sur la variété qui ne dépend pas de la carte qu’on utilise. On peut donc quotienter les chemins dans \(\R^n\) par cette propriété, définir la différentielle comme agissant sur le quotient (muni d’une structure s’espace vectoriel qui va bien, qui se trouve isomorphe à \(\R^n\)), et utiliser n’importe quelle carte pour faire remonter le quotient à une partition des chemins dans la variété (hop, encore une fois muni de la structure d’espace vectoriel qui va bien (ce coup ci il faut faire gaffe à ce que la structure ne dépende pas de la carte)), qui peut nous servir d’espace tangent pour définir la différentielle de manière indépendante de la carte !</p>
 
-<p>Je me suis amusé à en faire ce superbe diagramme inbuvable (que j’espère vrai, outre mes notations pas très conventionnelles et l’utilisation probablement approximative du <em>pushforward</em>) :
-<img style="display: block; margin: auto;" src="/assets/daily_posts/2025-04-17/differentiation_manifold.svg " />
+<p>Je me suis amusé à en faire ce superbe diagramme inbuvable (que j’espère vrai, outre mes notations pas très conventionnelles et l’utilisation probablement approximative du <em>pushforward</em>) :</p>
+
+<aside class="alert alert-warning alert-with-icon">
+<img alt="" src="/assets/images/callouts/warning.svg" class="alert-icon" />  <div>    <p>Correction apportée une semaine plus tard :<br />
+Le diagramme n’est pas vraiment commutatif parce que les trois flèches de la deuxième ligne vers la troisième ne devraient pas être des vraies flèches. C’est un “passage à la dérviée” : au dessus on a la fonction \(f\) et sa version poussée par la carte (\(\psi_*f\)), et en dessous on a la dérivée de \(\psi_*f\).<br />
+Donc on ne devrait pas accrocher les deux (là si le diagramme commutait ça voudrait dire que la dérivée de \(\psi_*f\) est une extension de \(\psi_*f\) à tout \(\R^n\), ce qui n’est pas vraiment l’idée)</p>
+
+    <aside class="alert alert-note">
+      <div>        <p>Dans tous les cas le diagramme reste très obscur.<br />
+Idéalement je ferai un post sur la construction d’une variété, de l’espace tangent, et de la différentielle d’une fonction entre variétés.</p>
+</div>
+    </aside>
+</div>
+</aside>
+
+<p><img style="display: block; margin: auto;" src="/assets/daily_posts/2025-04-17/differentiation_manifold.svg " />
 <!-- 
 https://q.uiver.app/#q=WzAsMjYsWzAsMiwiVSJdLFswLDQsIlxcUl5tIl0sWzIsMiwiXFxwc2koVSkgXFxzdWJzZXQgXFxSXm4iXSxbMiwwLCJKIFxcc3Vic2V0IFxcUiJdLFsxMCwyLCJVIl0sWzEwLDQsIlxccHNpKFUpIFxcc3Vic2V0IFxcUl5uIl0sWzgsNiwiXFxSIl0sWzE3LDIsIlUnIl0sWzE3LDAsIlxcUl5uIl0sWzE5LDIsIlxccHNpJyhVJykgXFxzdWJzZXQgXFxSXm0iXSxbMTksNCwiXFxSIl0sWzEwLDYsIlxcUl5uIl0sWzksOCwiXFxtYXRoY2Fse0N9XlxcaW5mdHlfezAgXFxtYXBzdG8gXFxwc2koeCl9KFxcUixcXFJebikiXSxbMyw3LCJcXHRleHR7YXZlYyB9IFxcbWF0aGNhbHtDfV5cXGluZnR5X3swIFxcbWFwc3RvIFxccHNpKHgpfShcXFIsXFxSXm4pIFxcdGV4dHsgbGVzIGZvbmN0aW9ucyBkZSB9IFxcUiBcXHRleHR7IGRhbnMgfSBcXFJebiBcXHRleHR7IHF1aSB2YWxlbnQgfSBcXHBzaSh4KSBcXHRleHR7IGVuIDAgZXQgc29udCBsaXNzZXMgZW4gMH0iXSxbOCw4LCJcXG1hdGhjYWx7Q31eXFxpbmZ0eV97MCBcXG1hcHN0byBcXHBzaSh4KX1cXGJpZyhcXFIsXFxwc2koVSlcXGJpZykiXSxbNiw4LCJcXG1hdGhjYWx7Q31eXFxpbmZ0eV97MCBcXG1hcHN0byB4fShcXFIsVSkiXSxbOCw0LCJcXFIiXSxbMTMsNCwiXFxSXm0iXSxbMTMsMiwiXFxSXm0iXSxbMTMsNiwiXFxSXm0iXSxbMTAsMTAsIlxcbWF0aGNhbHtDfV5cXGluZnR5X3swIFxcbWFwc3RvIFxccHNpKHgpfShcXFIsXFxSXm4pIC8gXFxzaW0iXSxbOCwxMCwiXFxtYXRoY2Fse0N9XlxcaW5mdHlfezAgXFxtYXBzdG8gXFxwc2koeCl9XFxiaWcoXFxSLFxccHNpKFUpXFxiaWcpIC8gXFxzaW0iXSxbNiwxMCwiXFxtYXRoY2Fse0N9XlxcaW5mdHlfezAgXFxtYXBzdG8geH0oXFxSLFUpIC8gXFxzaW0iXSxbNCw4LCJcXG1hdGhjYWx7Q31eXFxpbmZ0eV97MCBcXG1hcHN0byB4fShcXFIsTSkiXSxbNCwxMCwiVF94KE0pID0gXFxtYXRoY2Fse0N9XlxcaW5mdHlfezAgXFxtYXBzdG8geH0oXFxSLE0pIC8gXFxzaW0iXSxbNCwxMiwiXFxSXm0iXSxbMCwyLCJcXHBzaSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFswLDEsImYiLDJdLFsyLDEsIlxccHNpXypmID0gZiBcXGNpcmMgXFxwc2leey0xfSJdLFszLDIsIlxcZ2FtbWFfYTogdCBcXG1hcHN0byBcXHBzaSh4KSArIGF0Il0sWzMsMCwiXFxwc2leKmYgPSBcXHBzaSBcXGNpcmMgXFxnYW1tYV9hIiwyXSxbNCw1LCJcXHBzaSIsMl0sWzgsNywiZiIsMl0sWzcsOSwiXFxwc2knIiwyXSxbOCw5LCJcXHBzaV8qZiJdLFs3LDEwLCJcXHBzaV4qIFxccGlfYSIsMl0sWzksMTAsIlxccGlfYTogXFxsYW1iZGEgYSBcXG9wbHVzIHggXFx0byBcXGxhbWJkYSJdLFs1LDExLCIiLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFsxMiwxMSwiXFxnYW1tYSBcXG1hcHN0byBcXGZyYWN7ZH17ZHR9XFxiaWd8X3t0PTB9IFxcZ2FtbWEodCkiLDIseyJjdXJ2ZSI6MSwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzE0LDEyLCJpXzEiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFs2LDExLCJcXGdhbW1hX2EiLDFdLFs2LDE2LCIiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9fX1dLFsxNiw1LCJcXGdhbW1hX2EiLDFdLFsxNiw0XSxbNSwxNywiKFxccHNpXypmKSA9IGYgXFxjaXJjIFxccHNpXnstMX0iLDJdLFs0LDE4LCJmIiwxXSxbMTgsMTcsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFsxNywxOSwiIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiYXJyb3doZWFkIn19fV0sWzExLDE5LCJkX3tcXHBzaSh4KX0oXFxwc2lfKmYpIiwyXSxbMTQsMjEsIlxccGkiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMTUsMjIsIlxccGkiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMjEsMjAsIlxccGlfKmlfMSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxNSwyMywiaV8yIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMjMsMjQsIlxccGkiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMjIsMjQsIlxccGlfKmlfMiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsyNCwyNSwiZF97XFxwc2koeCl9KFxccHNpXypmKSBcXGNpcmMgXFxtdV57LTF9IFxcY2lyYyBcXHBpXyppXzEgXFxjaXJjIFxccGlfKlxccHNpXyogXFxjaXJjIChcXHBpXyppXzIpXnstMX0iXSxbMTIsMjAsIlxccGkiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMTEsMTIsImEgXFxtYXBzdG8gXFxnYW1tYV9hIiwyLHsiY3VydmUiOjEsInN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzExLDIwLCJcXG11OiBhIFxcbWFwc3RvIFxccGkoXFxnYW1tYV9hKSIsMCx7ImN1cnZlIjotMywic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzE1LDE0LCJcXHBzaV8qOiBcXGdhbW1hIFxcbWFwc3RvIFxccHNpIFxcY2lyYyBcXGdhbW1hIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzIyLDIxLCJcXHBpXypcXHBzaV8qIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzExLDQwLCIiLDIseyJvZmZzZXQiOjEsImN1cnZlIjoyLCJzaG9ydGVuIjp7InRhcmdldCI6MTB9LCJsZXZlbCI6MSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoic3F1aWdnbHkifX19XSxbNDAsMTIsIiIsMCx7Im9mZnNldCI6MSwiY3VydmUiOjEsInNob3J0ZW4iOnsic291cmNlIjoxMH0sImxldmVsIjoxLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
 --></p>
@@ -243,7 +257,7 @@ Mais on a mieux que ça : pour tout \(\lambda \in \k\) on a \(\rho(g) \circ (m -
       </div>
     </article><article class="post h-entry">
       <header class="post-header">
-        <time class="dt-published dailypost-date" datetime="2025-04-21T00:00:00+02:00">Mon, Apr 21, 2025
+        <time class="dt-published dailypost-date" datetime="2025-04-22T00:00:00+02:00">Tue, Apr 22, 2025
         </time>
         <h2 class="dailypost-title p-name">Suite d&#39;hier</h2>
       </header>
@@ -371,6 +385,106 @@ Si le foncteur est covariant ça transforme notre action en une action sur \(F(A
     </li>
   </ol>
 </div>
+
+      </div>
+    </article><article class="post h-entry">
+      <header class="post-header">
+        <time class="dt-published dailypost-date" datetime="2025-04-23T00:00:00+02:00">Wed, Apr 23, 2025
+        </time>
+        <h2 class="dailypost-title p-name">Compte rendu rapide de cours : les bases des feuilletages</h2>
+      </header>
+
+      <div class="post-content e-content">
+        <p>Aujourd’hui j’ai pas été très productif mais je vais retaper ici le message que j’ai envoyé à Mathias pour donner lui donner une idée de ce qu’on fait dans le cours sur les feuilletages (on en est qu’au définitions de base, donc c’est ce que je donne).<br />
+Malheureusement mes couleurs de stylos ne se voient pas bien sur les photos.</p>
+
+<p>L’idée c’est que tu pars du cas de \(R^d\), que tu peux découper en \(R^r \times R^{d-r}\) qui se partitionne en des feuilles de la forme \(R^r \times \{y\}\) pour tout \(y\) dans \(R^{d-r}\).</p>
+
+<p>Si tu prends un manifold de dimension \(d\), tu peux regarder comment remonte localement le feuilletage de \(R^d\) pour une carte \((U, \psi)\) donnée :
+<img src="/assets/daily_posts/2025-04-23/figure1.jpg " style="width: 50%; margin: auto; display:block;" /></p>
+
+<p>Les composantes connexes dans \(U\) des pré-images des feuilles dans \(R^d\) sont ce qu’on appelle des les “<em>plaques</em>” pour cette carte (dans l’image 1 il y a deux plaques en rose issues de la même feuille de \(R^d\), et une seule plaque en bleu)</p>
+
+<p>Ensuite l’idée c’est de prendre un atlas tel que les changements de carte respectent les feuilles dans \(R^d\) (ie. envoient les feuilles sur les feuilles), qu’on appelle “atlas feuilleté” (dans le cours on a rajouté que l’image de chaque carte de l’atlas est d’une certaine forme, et que l’atlas est maximal pour ces deux contraintes).
+<img src="/assets/daily_posts/2025-04-23/figure2.jpg " style="width: 80%; margin: auto; display:block;" /></p>
+
+<p>Du point de vue des plaques cette contrainte veut dire que si t’as deux cartes \((U_1, \psi_1)\) et \((U_2, \psi_2)\) et une plaque \(P_1\) dans l’une, une plaque \(P_2\) dans l’autre alors soit leur intersection est vide, soit \(P_1 \cap P_2 = P_1 \cap U_2 = U_1 \cap P_2\).</p>
+
+<p>Du coup on peut accrocher des plaques ensemble pour construire des chemins de plaques dans la variété, et au final construire des feuilles dans la variété en disant que deux points de la variété sont sur la même feuille si et seulement si on peut trouver un chemin de plaque qui les relie (pas de dessin ce coup ci parce que je vais m’arrêter ici).</p>
+
+      </div>
+    </article><article class="post h-entry">
+      <header class="post-header">
+        <time class="dt-published dailypost-date" datetime="2025-04-24T00:00:00+02:00">Thu, Apr 24, 2025
+        </time>
+        <h2 class="dailypost-title p-name">Not really productive, but let&#39;s get back on track ! (and I took the time to write random things anyway)</h2>
+      </header>
+
+      <div class="post-content e-content">
+        <p>Today wasn’t really productive either…<br />
+I totally broke my sleeping schedule during the last two nights, I didn’t go out, and I didn’t post yesterday :( (I posted yesterday’s post today).</p>
+
+<p>One of the goal of those daily post is precisely this: being forced to clearly call the day off and state where I stand, so I’m able to let it go and start the next day with some direction.</p>
+
+<p>So, yeah, today I still overfixated on the construction of the differential on manifolds (it haunts me)<br />
+As expected with the definitions of Lie groups and algebra, I always see some concepts of differential geometry, bringing me back to it. It’s getting better, but way too slowly, I think it’s actually because I’m trying to go too quickly…
+Tomorrow I’ll try to go through the course on differential geometry without skipping things but without going deeply into the questions I’ll have either (and drop my damn tentative of construction of the differential for now).</p>
+
+<h2 id="well-lets-still-give-some-mathematical-fun-facts">Well, let’s still give some mathematical fun facts!</h2>
+
+<blockquote>
+  <p>A connected <em>topological</em> group is generated by any neighbourhood of the identity.</p>
+</blockquote>
+
+<p><strong>Proof.</strong><br />
+You take \(U\) a neighbourhood of the identity and \(H\) the generated subgroup.<br />
+The set \(U\) gives you a neighbourhood of any element \(g \in G\), namely: \(gU \in \mathcal{V}(g)\).</p>
+
+<p>And for any \(g \in H\), since \(H\) is a group and \(U \in H\), we have \(gU \subset H\).<br />
+So we have two things:</p>
+<ul>
+  <li>\(H\) is open.</li>
+  <li>\(H = \bigcup_{g \in H} gU\)</li>
+</ul>
+
+<p>Now if we consider \(x\) in the border of \(H\) we have \(xU \cap H \neq \emptyset\).<br />
+Meaning there exists \(g \in U\) so that \(xg \in H\).<br />
+Meaning that \(x = (xg)g^{-1} \in H\).<br />
+So \(H\) contains its border: it’s closed.</p>
+
+<p>Finally, if \(G\) is connected and \(H \neq \emptyset\) we then have \(H = G\).
+\(~~~\square\)</p>
+
+<p>In fact we have this:</p>
+<blockquote>
+  <p>Every open subgroup of a topological group is also closed</p>
+</blockquote>
+
+<p><em>Proof.</em>
+We do the same thing as in the previous proof, but since \(H\) is open and contains the identity, we take \(xH\) as a neighbourhood of \(x\) (we could have also done it that way in the previous proof).</p>
+
+<p>If we consider \(x\) in the border of \(H\) we have \(xH \cap H \neq \emptyset\).<br />
+Meaning there exists \(g \in H\) so that \(xg \in H\).<br />
+Meaning that \(x = (xg)g^{-1} \in H\).<br />
+So \(H\) contains its border: it’s closed.
+\(~~~\square\)</p>
+
+<aside class="alert alert-note">
+  <div>    <p>It’s not true the other way around (we have “open \(\Rightarrow\) close” but not “closed \(\Rightarrow\) open”).</p>
+
+    <p>For exemple, in any non-discrete group the singleton \(\{e_G\}\) isn’t open, and it’s at least closed for groups embedded in \(\R^n\), or for Lie groups since the singleton is then homeomorphic to a singleton of \(\R^n\).</p>
+
+    <p>This example doesn’t work for every non-discrete topologies though.<br />
+For example (yes, a counter-counter-example), we could put the trivial topology on any group \(G\) to make it a topological group (which make any permutation of \(G\) continuous : in particular, the left and right multiplication and the inversion).<br />
+However, for now I can’t give a concrete non-trivial example of a topological group that appears naturally for which the singletons aren’t closed (or even a topological group that isn’t discrete or Lie, or the product of some).</p>
+
+    <p>And to give another classical example: \(\Q &lt; \R\) is closed, but not open</p>
+</div>
+</aside>
+
+<p>And I was also wondering (for, like, 5-10min) if there were interesting classification made of all the possible maximal atlases on the same topological space (obviously the question would probably need to get more precise about which topological sapce we consider, what dimension we ask for the atlases, and which compatibility condition we impose on the charts of the atlas).<br />
+And I stumbled upon the existence <a href="https://en.wikipedia.org/wiki/Exotic_sphere">exotic spheres</a> from this <a href="https://math.stackexchange.com/questions/2473974/is-the-maximal-atlas-for-a-topological-manifold-unique">forum answer</a> (I didn’t look into it though).<br />
+And the exempleof two icompatible atlases on \(\R\) given in the answer was interesting: \(x \mapsto x^3\) is homeomorphism from \(\R\) to \(\R\) but not a diffeomorphism (since the derivative of the cubic root is undefined at 0), so \((\R, x \mapsto x^3)\) still a chart on \(\R\), but it’s incompatible with \((\R, \Id)\).</p>
 
       </div>
     </article>
