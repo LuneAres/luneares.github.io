@@ -570,6 +570,10 @@ p + ul, p + ol {
   }
 }
 
+.dailypost-full-header {
+  text-align: center;
+}
+
 .dailypost-title {
   font-size: 19.2px;
   color: #828282;
@@ -581,6 +585,12 @@ p + ul, p + ol {
   letter-spacing: -1px;
   line-height: 1;
   margin-bottom: 0px;
+}
+
+.post-content.dailypost-content h2 {
+  font-size: 20.8px;
+  font-style: italic;
+  text-align: center;
 }
 
 /**
