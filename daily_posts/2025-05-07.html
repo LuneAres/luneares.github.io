@@ -8,8 +8,8 @@
 <meta property="og:title" content="Starting to write about the Heisenberg algebra/group" />
 <meta name="author" content="Elias Garcia--Naze" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Here \(\mathfrak{h}\) design the Heisenberg Lie algebra and \(H\) is the associated Lie group." />
-<meta property="og:description" content="Here \(\mathfrak{h}\) design the Heisenberg Lie algebra and \(H\) is the associated Lie group." />
+<meta name="description" content="I’m trying to understand this from Kirrilov’s book (here \(\mathfrak{h}\) design the Heisenberg Lie algebra and \(H\) is the associated Lie group): Exercise 2. Describe all closed connected subgroups in \(H\) and determine which of them are normal. Hint. All such subgroups have the form \(A = \exp(\mathfrak{a})\) where \(\mathfrak{a} \subset \mathfrak{h}\) is a Lie subalgebra. Normal subgroups in \(H\) correspond to ideals in \(\mathfrak{h}\)." />
+<meta property="og:description" content="I’m trying to understand this from Kirrilov’s book (here \(\mathfrak{h}\) design the Heisenberg Lie algebra and \(H\) is the associated Lie group): Exercise 2. Describe all closed connected subgroups in \(H\) and determine which of them are normal. Hint. All such subgroups have the form \(A = \exp(\mathfrak{a})\) where \(\mathfrak{a} \subset \mathfrak{h}\) is a Lie subalgebra. Normal subgroups in \(H\) correspond to ideals in \(\mathfrak{h}\)." />
 <link rel="canonical" href="https://luneares.github.io/daily_posts/2025-05-07.html" />
 <meta property="og:url" content="https://luneares.github.io/daily_posts/2025-05-07.html" />
 <meta property="og:type" content="article" />
@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Starting to write about the Heisenberg algebra/group" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Elias Garcia--Naze"},"dateModified":"2025-05-07T00:00:00+02:00","datePublished":"2025-05-07T00:00:00+02:00","description":"Here \\(\\mathfrak{h}\\) design the Heisenberg Lie algebra and \\(H\\) is the associated Lie group.","headline":"Starting to write about the Heisenberg algebra/group","mainEntityOfPage":{"@type":"WebPage","@id":"https://luneares.github.io/daily_posts/2025-05-07.html"},"url":"https://luneares.github.io/daily_posts/2025-05-07.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Elias Garcia--Naze"},"dateModified":"2025-05-07T00:00:00+02:00","datePublished":"2025-05-07T00:00:00+02:00","description":"I’m trying to understand this from Kirrilov’s book (here \\(\\mathfrak{h}\\) design the Heisenberg Lie algebra and \\(H\\) is the associated Lie group): Exercise 2. Describe all closed connected subgroups in \\(H\\) and determine which of them are normal. Hint. All such subgroups have the form \\(A = \\exp(\\mathfrak{a})\\) where \\(\\mathfrak{a} \\subset \\mathfrak{h}\\) is a Lie subalgebra. Normal subgroups in \\(H\\) correspond to ideals in \\(\\mathfrak{h}\\).","headline":"Starting to write about the Heisenberg algebra/group","mainEntityOfPage":{"@type":"WebPage","@id":"https://luneares.github.io/daily_posts/2025-05-07.html"},"url":"https://luneares.github.io/daily_posts/2025-05-07.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://luneares.github.io/feed.xml" /><script
       src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
@@ -109,10 +109,7 @@
   </header>
 
   <div class="post-content dailypost-content e-content" itemprop="articleBody">
-    <p>Here \(\mathfrak{h}\) design the Heisenberg Lie algebra and \(H\) is the associated Lie group.</p>
-
-<p>I’m trying to understand this from Kirrilov’s book:</p>
-
+    <p>I’m trying to understand this from Kirrilov’s book (here \(\mathfrak{h}\) design the Heisenberg Lie algebra and \(H\) is the associated Lie group):</p>
 <blockquote>
   <p><strong>Exercise 2.</strong> Describe all closed connected subgroups in \(H\) and determine which of them are normal.</p>
 
@@ -152,11 +149,13 @@
 
 (the Lie bracket being effectively given by the commutator \([A,B] = AB - BA\) for \(A,B \in H\))</p>
 
-<p>We can define the exponential as usual on \(H \subset \Mat_n(\R)\) as a Taylor series:
+<p>We can define the exponential as usual on \(\h \subset \Mat_n(\R)\) as a Taylor series:
 \[\exp(A) = \sum_{k \in \N} \frac{1}{k!}A^k\]
 </p>
 
-<p>We easily see that the series converges for any \(A=xX+yY+zZ \in \h\) and we can even compute it since every triple product vanishes:
+<p>We easily see that the series converges for any \(A=xX+yY+zZ \in \h\) and we can even compute it since every triple product vanishes. Let’s do it.</p>
+
+<p>The exponential is defined as
 \[\exp(A) = I_3 + (xX + yY + zZ) + \frac{1}{2}(xX + yY + zZ)^2 + \frac{1}{6}(xX + yY + zZ)^3 + \ldots\]
 
 but we have
@@ -166,15 +165,16 @@ but we have
 	                 &amp;= Z
 \end{align*}\]
 
-so in the end
+so in the end we get
 \[\begin{align*}
-	\exp(A) &amp;= I_3 + (xX + yY + zZ) + \frac{1}{2}xyZ + \underbrace{\frac{1}{6}(xX + yY + zZ)Z}_{=0} + \underbrace{\ldots}_{=0} \\
-	       &amp;= 
-		\begin{pmatrix}
-			1 &amp; x &amp; z+\frac{xy}{2} \\
-			0 &amp; 1 &amp; y              \\
-			0 &amp; 0 &amp; 1
-		\end{pmatrix}
+	\exp(A)
+	&amp;= I_3 + (xX + yY + zZ) + \frac{1}{2}xyZ + \underbrace{\frac{1}{6}(xX + yY + zZ)Z}_{=0} + \underbrace{\ldots}_{=0} \\
+	&amp;= 
+	\begin{pmatrix}
+		1 &amp; x &amp; z+\frac{xy}{2} \\
+		0 &amp; 1 &amp; y              \\
+		0 &amp; 0 &amp; 1
+	\end{pmatrix}
 \end{align*}\]
 </p>
 

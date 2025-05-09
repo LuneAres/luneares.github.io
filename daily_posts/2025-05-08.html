@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Continuing with the Heisenberg algebra/group</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Continuing with the Heisenberg algebra/group" />
+<meta name="author" content="Elias Garcia--Naze" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Now that we have the matrix reprensentation of the exponential map we get to define the heisenberg group \(H = \exp(\h) &lt; \GL_3(\R)\), where the group law is standard matrix multiplication." />
+<meta property="og:description" content="Now that we have the matrix reprensentation of the exponential map we get to define the heisenberg group \(H = \exp(\h) &lt; \GL_3(\R)\), where the group law is standard matrix multiplication." />
+<link rel="canonical" href="https://luneares.github.io/daily_posts/2025-05-08.html" />
+<meta property="og:url" content="https://luneares.github.io/daily_posts/2025-05-08.html" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-05-08T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Continuing with the Heisenberg algebra/group" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Elias Garcia--Naze"},"dateModified":"2025-05-08T00:00:00+02:00","datePublished":"2025-05-08T00:00:00+02:00","description":"Now that we have the matrix reprensentation of the exponential map we get to define the heisenberg group \\(H = \\exp(\\h) &lt; \\GL_3(\\R)\\), where the group law is standard matrix multiplication.","headline":"Continuing with the Heisenberg algebra/group","mainEntityOfPage":{"@type":"WebPage","@id":"https://luneares.github.io/daily_posts/2025-05-08.html"},"url":"https://luneares.github.io/daily_posts/2025-05-08.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://luneares.github.io/feed.xml" /><script
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      type="text/javascript">
+    </script>
+    <!-- More informations:
+    https://minimalbb.github.io/cheat%20sheet/kramdown-markdown-guide-with-jekyll/
+    https://www.fabriziomusacchio.com/blog/2021-08-10-How_to_use_LaTeX_in_Markdown/
+    -->
+    <!-- et si je veux utiliser mathjax sur "$$" (je l'ai enlevé parce que comme ça je laisse kramdown parser et transformer les "$" en "\(", ce qui permet d'échapper les "$" en écrivant "\$")
+      inlineMath: [['$','$'], ['\\(','\\)']]
+    -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['\\(','\\)']],
+          processEscapes: true
+        },
+        "HTML-CSS": { scale: 90, linebreaks: { automatic: false } }, 
+        SVG: { linebreaks: { automatic: false } }, 
+        displayAlign: "center"
+      });
+    </script>
+
+    <!-- And there is this. I don't even know where I've taken it from and why: -->
+    <!-- <script
+      type="text/javascript"
+      charset="utf-8"
+      src="https://vincenttam.github.io/javascripts/MathJaxLocal.js"
+    >
+    </script> -->
+
+    <!-- latex macros -->
+    <!-- See:
+      https://www.wild-inter.net/posts/mathjax-in-jekyll
+      https://docs.mathjax.org/en/latest/input/tex/macros.html
+    -->
+    <div style="display:none">
+    $$% 
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\H}{\mathcal{H}}
+\renewcommand{\k}{\mathbf{k}}
+\renewcommand{\h}{\mathfrak{h}}
+\renewcommand{\g}{\mathfrak{g}}
+\newcommand{\L}{\mathcal{L}}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\M}{M}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\tr}{tr}
+
+\newcommand{\tini}[1]{{{}_{#1}}}
+
+% $$
+    </div></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href=""></a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/daily_posts.html">Daily posts</a><a class="page-link" href="/">Home</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <time class="dt-published dailypost-date" datetime="2025-05-08T00:00:00+02:00" itemprop="name datePublished">Thu, May 8, 2025
+    </time>
+    <h2 class="dailypost-title p-name" itemprop="headline">Continuing with the Heisenberg algebra/group</h2>
+  </header>
+
+  <div class="post-content dailypost-content e-content" itemprop="articleBody">
+    <p>Now that we have the matrix reprensentation of the exponential map we get to define the heisenberg group \(H = \exp(\h) &lt; \GL_3(\R)\), where the group law is standard matrix multiplication.</p>
+
+<p>Before verifying that \(\exp(\h)\) is indeed a subgroup of \(\GL_3(\R)\), we will note that the exponential map gives us a one to one correspondance between the upper triangular matrices with zero on the diagonal (ie. the Heisenberberg algebra \(\h\)) and the upper triangular matrices with ones on the diagonal (ie. \(\exp(\h)\) is exactly the set of triangular real matrices with ones on the diagonal):
+\[\exp(xX+yY+zZ) =
+	\begin{pmatrix}
+		1 &amp; a &amp; c \\
+		0 &amp; 1 &amp; b \\
+		0 &amp; 0 &amp; 1
+	\end{pmatrix}
+	\Longleftrightarrow
+	\begin{cases}
+		x = a \\
+		y = b \\
+		z = c - \frac{xy}{2} = c - \frac{ab}{2}
+	\end{cases}\]
+
+(see yesterday’s post for \(\exp(xX+yY+zZ) = I_3 + xX + yY + (z+\frac{xy}{2})Z\))</p>
+
+<p>To summarize, we get two ways of representing elements of \(H\) using three real coordinates:</p>
+<ul>
+  <li>choosing \(xX+yY+zZ \in \h\):
+\[h(x,y,z) = \exp(xX+yY+zZ) \in H = \exp(\h)\]
+  </li>
+  <li>choosing \(a,b,c \in \R\):
+\[\tilde{h}(a,b,c) = 
+  \begin{pmatrix}
+      1 &amp; a &amp; c \\
+      0 &amp; 1 &amp; b \\
+      0 &amp; 0 &amp; 1
+  \end{pmatrix}\]
+  </li>
+</ul>
+
+<p>The triplets \((x,y,z)\) and \((a,b,c)\) are respectively called the <em>exponential</em> and <em>canonical</em> coordinates (at least in Kirillov’s book, the notations “\(h\)” and “\(\tilde{h}\)” are from there too), and we have established the correspondance between the two coordinates coordinates systems on \(H\):
+\[\begin{align*}
+	&amp; h(x,y,z)         = \tilde{h}(x,\; y,\; z+{\textstyle\frac{xy}{2}}) \\
+	&amp; \tilde{h}(a,b,c) = h(a,\; b,\; c-{\textstyle\frac{ab}{2}})
+\end{align*}\]
+</p>
+
+<aside class="alert alert-important alert-with-icon">
+<img alt="" src="/assets/images/callouts/important.svg" class="alert-icon" />  <div>    <p>In fact, we have a definition of the canonical coordinates that doesn’t rely on this specific matrix realisation:</p>
+
+    <p>\[\tilde{h}(a,b,c) = \exp(aX) \exp(bY) \exp(cZ)\]
+
+They’re canonical coordinates given the ordered basis \((X,Y,Z)\) of \(\h\).</p>
+
+    <p>I find this point of view really interesting. I have a few things to say about it (see you tomorrow, probably), but I still have a lot to understand about what’s going on.</p>
+</div>
+</aside>
+
+<p>With this we can show that \(\exp(\h)\) is indeed a subgroup of \(\GL_3(\R)\):</p>
+<ul>
+  <li>For any \(A \in \h\) since \(A\) and \(-A\) commute with each other we know that
+  \[\exp(-A) \exp(A) = \exp(A) \exp(-A) = \exp(A-A) = I_3\]
+
+  so \((\exp(A))^{-1} = \exp(-A) \in H\)</li>
+  <li>For any \(\tilde{h}(a,b,c),\; \tilde{h}(a',b',c') \in H\) we have
+  \[\begin{align*}
+      \tilde{h}(a,b,c) \, \tilde{h}(a',b',c')
+      &amp;=
+      \begin{pmatrix}
+          1 &amp; a &amp; c \\
+          0 &amp; 1 &amp; b \\
+          0 &amp; 0 &amp; 1
+      \end{pmatrix}
+      \begin{pmatrix}
+          1 &amp; a' &amp; c' \\
+          0 &amp; 1  &amp; b' \\
+          0 &amp; 0  &amp; 1
+      \end{pmatrix}
+      \\ &amp;=
+      \begin{pmatrix}
+          1 &amp; a'+a &amp; c'+ab'+c \\
+          0 &amp; 1    &amp; b'+b     \\
+          0 &amp; 0    &amp; 1
+      \end{pmatrix}
+      \\ &amp;=
+      \tilde{h}(a+a',\; b+b',\; c+c'+ab') \in H 
+  \end{align*}\]
+
+  so \(H\) is stable under multiplication.</li>
+</ul>
+
+<p>Telling that \(H\) is stable under multiplication is the same as saying that there is a binary operation “\(*\)” on \(\h\) verifying
+\[\exp(A) \exp(B) = \exp(A*B)\]
+
+for any \(A,B \in \h\).</p>
+
+<p>For \(A = xX+yY+zZ\) and \(B = x'X+y'Y+z'Z\) the operation is defined by switching to canonical coordinates, doing the multiplication, then going back to exponential coordinates:
+\[\begin{align*}
+	\exp(A*B) &amp;= h(x,y,z) h(x',y',z') \\
+	          &amp;= \tilde{h}(x,\; y,\; z+{\textstyle\frac{xy}{2}}) \, \tilde{h}(x',\; y',\; z'+{\textstyle\frac{x'y'}{2}}) \\
+	          &amp;= \tilde{h} \big( x+x',\; y+y',\; (z+{\textstyle\frac{xy}{2}}) + (z'+{\textstyle\frac{x'y'}{2}}) + xy' \big) \\
+	          &amp;= h \big( x+x',\; y+y',\; (z + z'+ {\textstyle \frac{xy}{2} + \frac{x'y'}{2}} + xy') - {\textstyle\frac{(x+x')(y+y')}{2}} \big) \\
+	          &amp;= h \big( x+x',\; y+y',\; z + z' + {\textstyle \frac{xy' - x'y}{2}} \big)
+\end{align*}\]
+
+So we have
+\[\begin{align*}
+	A*B &amp;= (x+x')X + (y+y')Y + (z+z'+{\textstyle\frac{xy' - x'y}{2}})Z \\
+	    &amp;= A + B + {\textstyle\frac{xy'-x'y}{2}}Z
+\end{align*}\]
+</p>
+
+<p>And we can write that using a commutator:
+\[A*B = A + B + \frac{1}{2}[A,B]\]
+</p>
+
+<p>That’s the first time we’re using the Lie bracket on \(\h\)! <br />
+Up until now we might as well have forgotten that it was a Lie algebra.
+And \(H\) may be a subgroup of \(GL_3(\R)\) but we have yet to see the manifold part and the relationship with the commutator.</p>
+
+<aside class="alert alert-note alert-with-icon">
+<img alt="" src="/assets/images/callouts/note.svg" class="alert-icon" />  <div>    <p>More generally, for any nilpotent Lie algebra the <a href="https://en.wikipedia.org/wiki/Baker-Campbell-Hausdorff_formula">Baker-Campbell-Hausdorff formula</a> (BCH fomula) gives us an expression of \(A*B\) as a linear combination of \(A\), \(B\), and their nested Lie brackets (ie. a non-commutative polynomial in \(A\) and \(B\), using the Lie bracket as the multiplication).</p>
+</div>
+</aside>
+
+  </div>
+
+  <a class="u-url" href="/daily_posts/2025-05-08.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading"></h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Elias Garcia--Naze</li></ul><ul class="social-media-list"><li><a href="https://github.com/LuneAres"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">LuneAres</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-2">
+        <a href="/license.html">Licence et remerciements</a>
+        <a href="/mentions_legales.html">Mentions légales</a>
+        <!-- <p xmlns:cc="http://creativecommons.org/ns#" >
+          Le contenu de ce site est autant que possible soumis à la licence
+          <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1" alt=""></a>
+        </p> -->
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Un petit blog de maths pour raconter ce que je fais pendant mon stage</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
