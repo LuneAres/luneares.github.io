@@ -633,7 +633,7 @@ I didn’t finish reading it but I went through most of the exercises and exampl
   </li>
   <li>Definition of the tensor product by the universal property.</li>
   <li>Definition of the spaces of symmetric and antisymmetric tensors.</li>
-  <li>Definition of a volume form (a non-vanishing section of \(\bigwedge^n T^*M\)) to get a measure on the manifold from the Lebesgue measure on Rⁿ.</li>
+  <li>Definition of a volume form (a non-vanishing section of \(\bigwedge^n T^*M\)) to get a measure on the manifold from the Lebesgue measure on \(\R^n\).</li>
   <li>A vector field over a Lie group invariant under the action induced by the left (or right) multiplication is entirely determined by its value at the identity (ie. by a vector in the tangent space around the identity : the Lie algebra).</li>
   <li>Apparently we can always find a vector field on a Lie group that is invariant under the action induced by left multiplication (as well as one for the right multiplication)</li>
   <li>If we want a vector field that is invariant by both left and right actions than what we want is a vector field that is invariant by the action induced by the conjugation.</li>
@@ -874,6 +874,84 @@ And \(H\) may be a subgroup of \(GL_3(\R)\) but we have yet to see the manifold 
 <img alt="" src="/assets/images/callouts/note.svg" class="alert-icon" />  <div>    <p>More generally, for any nilpotent Lie algebra the <a href="https://en.wikipedia.org/wiki/Baker-Campbell-Hausdorff_formula">Baker-Campbell-Hausdorff formula</a> (BCH fomula) gives us an expression of \(A*B\) as a linear combination of \(A\), \(B\), and their nested Lie brackets (ie. a non-commutative polynomial in \(A\) and \(B\), using the Lie bracket as the multiplication).</p>
 </div>
 </aside>
+
+      </div>
+    </article><article class="post h-entry">
+      <header class="post-header dailypost-full-header">
+        <a class="post-link" href="/daily_posts/2025-05-12.html">
+          <time class="dt-published dailypost-date" datetime="2025-05-12T00:00:00+02:00">Mon, May 12, 2025
+          </time>
+        </a>
+        <h2 class="dailypost-title p-name">First part of constructing an irreducible unitary representation from a linear form on the Lie algeabra</h2>
+      </header>
+
+      <div class="post-content dailypost-content e-content">
+        <p>Friday was quite a busy day so I didn’t find time to write a post, but I’ve met Clément, and I also gave some thinking to a few things on the week-end, so I will talk about it (as much as I can before being too sleepy).</p>
+
+<h2 id="answering-the-exercise-from-last-wednesday">Answering the exercise from last wednesday</h2>
+
+<p>First, Clément gave me the reason of the correspondance between closed subgroups and Lie subalgebras :</p>
+<ul>
+  <li>if you have a closed subgroup of a Lie group \(G\), than by Cartan’s theorem it is an embedded Lie group (well, I still need to look for how this works), and it’s tangent space around the identity is a Lie algebra embedded in the lie algebra of \(G\): a Lie subalgebra</li>
+  <li>the other way around I already had it: if you take a Lie subalgebra of the Heisenberg algebra (or any nilpotent Lie algebra), the BCH formula basically gives you the product of \(\exp(A)\) and \(\exp(B)\) for \(A\) as the exponential of a linear combination of \(A\), \(B\), and their nested Lie brackets up to a certain order (since the algebra is nilpotent it stops at some point)</li>
+</ul>
+
+<h2 id="first-part-of-constructing-an-irreducible-unitary-representation-from-a-linear-form-on-the-lie-algeabra">First part of constructing an irreducible unitary representation from a linear form on the Lie algeabra</h2>
+
+<p>I also saw how any linear form \(F\) over the Lie algebra of a nilpotent Lie group naturally induce an application \(\pi_F: (\exp(\h), \circ) \to (\S^1, \times)\) such that that following diagram commutes (since the exponential map is a bijection in the case of a nilpotent Lie group):
+<img style="display: block; margin: auto;" src="/assets/daily_posts/2025-05-12/diagram1.svg " /></p>
+
+<p>Namely, for any \(\exp(A) \in \exp(\h)\) we have \(\pi_F(\exp(A)) = e^{2i\pi F(A)}\).</p>
+
+<p>In general the application \(\pi_F\) isn’t a group morphism.</p>
+
+<p>For example, if you look at \(\h\) the Heisenberg algebra and take a \(F \in \h^*\) then you have the following
+\[\begin{align*}
+	\pi_F(\exp(A)\exp(B)) &amp;= \pi_F(\exp(A+B+{\textstyle\frac{1}{2}}[A,B])) \\
+	                      &amp;= e^{2i\pi F(A+B+{\textstyle\frac{1}{2}}[A,B])} \\
+	                      &amp;= e^{2i\pi F(A)} e^{2i\pi F(B)} e^{2i\pi {\textstyle\frac{1}{2}}F([A,B])} \\
+	                      &amp;= \pi_F(\exp(A)) \pi_F(\exp(B)) e^{2i\pi {\textstyle\frac{1}{2}}F([A,B])}
+\end{align*}\]
+
+So we have \(\pi_F(\exp(A)) \pi_F(\exp(B)) = \pi_F(\exp(A)\exp(B))\) if and only if \(e^{2i\pi {\textstyle\frac{1}{2}}F([A,B])} = 1\).</p>
+
+<p>Depending on \(F\), this may not be verifie for every couple \((A,B) \in \h^2\).<br />
+So if we want to restrict \(\pi_F\) to a group isomorphism we need to find a subgroup \(\exp(\mathfrak{a}) &lt; \exp(\h)\), where \(\mathfrak{a} &lt; \h\) is a Lie subalgebra (we only care about closed subgroups)</p>
+
+<p>We have three options to constrain the values of \(A\) and \(B\) (from the more restrictive to the least restrictive):</p>
+<ol>
+  <li>\(\forall A,B \in \mathfrak{a},\, [A,B]=0\) <br />
+ ie. we take \(\mathfrak{a}\) the center of the algebra: \(\mathfrak{a} = \R Z = \exp^{-1}(Z(H))\), where \(Z(H) = \exp(\R Z)\) is the center of the Heisenberg group</li>
+  <li>\(\forall A,B \in \mathfrak{a},\, F([A,B])=0\)</li>
+  <li>\(\forall A,B \in \mathfrak{a},\, \frac{1}{2}F([A,B]) \in \Z = \ker(x \mapsto e^{2i\pi x})\)</li>
+</ol>
+
+<p>The last one actually falls back to the second one. It gives us multiple diconnected components of \(\h\) as values allowed for the bracket (\([\mathfrak{a},\mathfrak{a}] \subset F^{-1}(2\Z)\), and \(F\) is continuous, and \(2\Z\) is discrete so disconnected). So since \(\mathfrak{a} &lt; \h\) is connected, and \(\mathfrak{a} = [\mathfrak{a},0] \subset [\mathfrak{a},\mathfrak{a}]\), it is contained in the connected component containing 0: \(F^{-1}(\{0\})\).</p>
+
+<p>Both the first and the second one are pretty straightforward and still work for higher order nilpotent Lie abebra.</p>
+
+<p>And the second one is pretty neat: it’s (possibly) more permissive than the first one (the permissiveness depends on \(F\), if I take \(F: xX+yY+zZ \mapsto z\) then the second condition implies the first one), but it is still really simple. <br />
+It’s the one we’ll use.</p>
+
+<aside class="alert alert-note">
+  <div>    <p>I don’t know exacly how it goes for nilpotent Lie groups other than Heisenberg but I feel like conditions less restrictive than the second one start getting messy when nested commutators get involved and you need to manage linear combinations of those.</p>
+    <aside class="alert alert-question">
+      <div>        <p>Does it actually always fall back to the first or the second condition?</p>
+</div>
+    </aside>
+</div>
+</aside>
+
+<p>I still have to understand what is going on but the key thing apparently is that if you take \(\mathfrak{a}\) a subalgebra that is maximal for condition (2) then the “induction functor” will spit out an unitary irreducible representation of \(\exp(\h)\) from the character \(\pi_F|_{\exp(\mathfrak{a})}\) over \(\exp(\mathfrak{a})\)</p>
+
+<p>And now I need to understand and formalize this induction process! (for the Heisenberg group)</p>
+
+<h2 id="starting-to-think-about-infinite-dimensional-unitary-representations">Starting to think about infinite dimensional unitary representations</h2>
+
+<p>Something I realized when I tried to induce an algebra representation from an unitary representation of a Lie group is that if you consider an infinite dimensional hilbert space \(\H\) then the space of unitary operators on \(\H\) isn’t a Lie group. Otherwise I managed to find the reasoning to establishing that the unitary group of order \(n\) is a \(n^2\)-dimensional real manifold, the associated Lie algebra being the skew hermitian matrices.</p>
+
+<p>I’m really sleepy now so I don’t go into details (I still have a lot of things to figure out), but apparently <a href="https://en.wikipedia.org/wiki/Stone's_theorem_on_one-parameter_unitary_groups">Stone’s theorem on one-parameter unitary groups</a> allows you to still define the derivative of a unitary representation around the identity.</p>
+
 
       </div>
     </article>
