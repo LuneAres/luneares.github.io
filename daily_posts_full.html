@@ -62,10 +62,12 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\S}{\mathbb{S}}
 
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\B}{\mathcal{B}}
 \newcommand{\H}{\mathcal{H}}
+\newcommand{\U}{\mathcal{U}}
 \renewcommand{\k}{\mathbf{k}}
 \renewcommand{\h}{\mathfrak{h}}
 \renewcommand{\g}{\mathfrak{g}}
@@ -606,7 +608,7 @@ I didn’t finish reading it but I went through most of the exercises and exampl
 
     <p>Additionaly, for the identification to work you need the family of diffeomorphisms \(\{\varphi_{ij}\}_{i,j}\) to verify the Čech cocycle property, so that you really get an equivalence relation \(\sim\), and the vector bundle is given as \(E = \big( \bigsqcup_i U_i \times \R^N \big) / \sim\)</p>
 
-    <p>Every possible \(N\)-dimensional vector bundle is then defined by varying the family \(\{f_{ij}\}_{i,j}\) (and the covering)</p>
+    <p>Every possible \(N\)\(-dimensional vector bundle is then defined by varying the family\){f_{ij}}_{i,j}$ (and the covering)</p>
 
     <aside class="alert alert-note">
       <div>        <p>If you used a covering \(\{U_i\}_{i \in I}\) and a family \(\{f_{ij}\}_{i,j \in I}\) to define your vector bundle, then any subcovering \(\{U_i\}_{i \in J}\) for \(J \subset I\) and family \(\{f_{ij}\}_{i,j \in J}\) defines the same vector bundle.</p>
@@ -926,9 +928,26 @@ So if we want to restrict \(\pi_F\) to a group isomorphism we need to find a sub
   <li>\(\forall A,B \in \mathfrak{a},\, \frac{1}{2}F([A,B]) \in \Z = \ker(x \mapsto e^{2i\pi x})\)</li>
 </ol>
 
-<p>The last one actually falls back to the second one. It gives us multiple diconnected components of \(\h\) as values allowed for the bracket (\([\mathfrak{a},\mathfrak{a}] \subset F^{-1}(2\Z)\), and \(F\) is continuous, and \(2\Z\) is discrete so disconnected). So since \(\mathfrak{a} &lt; \h\) is connected, and \(\mathfrak{a} = [\mathfrak{a},0] \subset [\mathfrak{a},\mathfrak{a}]\), it is contained in the connected component containing 0: \(F^{-1}(\{0\})\).</p>
+<p>The last one actually falls back to the second one.<br />
+If the last constraint is verfied we have this partition of the set of allowed values for the bracket:
+\[[\mathfrak{a},\mathfrak{a}] \subset F^{-1}(2\Z) = \bigsqcup_{n \in \N} F^{-1}(2n)\]
 
-<p>Both the first and the second one are pretty straightforward and still work for higher order nilpotent Lie abebra.</p>
+where each \(F^{-1}(2n)\) is both open and closed (they may not be connected, but they’re unions of connected components).<br />
+On the other hand, the bracket being continous from \(\h \times \h\) to \(\h\) we have that \([\mathfrak{a},\mathfrak{a}]\) is connected in \(\h\) because \(\mathfrak{a}\) is connected in \(\h\) (linear subspaces are path-connected), so \(\mathfrak{a} \times \mathfrak{a}\) is connected in \(\h \times \h\).<br />
+So we must have \([\mathfrak{a},\mathfrak{a}] \subset F^{-1}(2n)\) for some \(n \in \Z\), and since we have \([0_\h,0_\h] = 0_\h \in F^{-1}(0)\) we must have \(n=0\), which is exactly the second constraint</p>
+
+<aside class="alert alert-warning">
+  <div>    <p>I just remembered what I initially wrote here as a proof of \(\text{(3)} \Rightarrow \text{(2)}\), and god what a mess it was. Thankfully it looks like the statement was still true, as I found a new proof.</p>
+
+    <p>Here is the previous version if you want to look at how wrong it went (two false basic statements in such a short proof…).</p>
+
+    <blockquote>
+      <p>the last condition gives us multiple diconnected components of \(\h\) as values allowed for the bracket (\([\mathfrak{a},\mathfrak{a}] \subset F^{-1}(2\Z)\), and \(F\) is continuous, and \(2\Z\) is discrete so disconnected). So since \(\mathfrak{a} &lt; \h\) is connected, and \(\mathfrak{a} = [\mathfrak{a},0] \subset [\mathfrak{a},\mathfrak{a}]\), it is contained in the connected component containing 0: \(F^{-1}(\{0\})\).</p>
+    </blockquote>
+</div>
+</aside>
+
+<p>Both (1) and (2) are pretty straightforward and still work for higher order nilpotent Lie abebra.</p>
 
 <p>And the second one is pretty neat: it’s (possibly) more permissive than the first one (the permissiveness depends on \(F\), if I take \(F: xX+yY+zZ \mapsto z\) then the second condition implies the first one), but it is still really simple. <br />
 It’s the one we’ll use.</p>
@@ -952,6 +971,80 @@ It’s the one we’ll use.</p>
 
 <p>I’m really sleepy now so I don’t go into details (I still have a lot of things to figure out), but apparently <a href="https://en.wikipedia.org/wiki/Stone's_theorem_on_one-parameter_unitary_groups">Stone’s theorem on one-parameter unitary groups</a> allows you to still define the derivative of a unitary representation around the identity.</p>
 
+
+      </div>
+    </article><article class="post h-entry">
+      <header class="post-header dailypost-full-header">
+        <a class="post-link" href="/daily_posts/2025-05-14.html">
+          <time class="dt-published dailypost-date" datetime="2025-05-14T00:00:00+02:00">Wed, May 14, 2025
+          </time>
+        </a>
+        <h2 class="dailypost-title p-name">Unitary representations of the Heisenberg group: CCR to express it in the algebra</h2>
+      </header>
+
+      <div class="post-content dailypost-content e-content">
+        <p>Okay, I have a few things I wanna talk about but I don’t have time to write everything down tonight. Let’s sum things up here.</p>
+
+<p>The idea is that using Stone’s theorem on one-parameter unitary groups we can match unitary (irreducible) representations of the Heisenberg group with (irreducible) a class of representations of the algebra (hum, maybe this correspondance appear in the proof of Stone’s theorem).<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
+
+<p>A representation of the heisenberg group is totally caracterized by the representation of the one-parameter subgroups generated by \(X\), \(Y\), and \(Z\).</p>
+
+<p>If we consider \(\exp(xX) \in H\) an element of the one parameter subgroup generated by \(X\), and \(\rho: H \to \U(\H)\) an unitary representation, then we have (by Stone’s theorem) \(\rho(\exp(xX)) = e^{ixT_X}\) with \(T_X \in \L(\H)\) self-adjoint (and potentially unbounded, but densily defined<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>). And in a similar fashion we can define \(T_Y\) and \(T_Z\).</p>
+
+<p>And if \(\rho\) is irreducible we have that \(e^{izT_Z} = \rho(\exp(zZ))\) is a multiplication operator, so \(T_Z = \lambda\Id_\H\) with \(\lambda \in \R\). And we have \(e^{ixT_X} e^{iyT_Y} = \rho(\exp(aX) \exp(bY)) = \rho \big( \exp(bY) \exp(aX) \exp(abZ) \big) = e^{ibT_Y} e^{iaT_X} e^{iab\lambda \Id_\H} = e^{iab\lambda} e^{ibT_Y} e^{iaT_X}\)</p>
+
+<p>In the end what we get is a caracterization of the representations of the Heisenberg algebra corresponding to unitary irreducible representations of the Heisenberg group:</p>
+
+<blockquote>
+  <p>Choose \(\lambda \in \R\) and two self-adjoint operators \(p\), \(q\) verifying</p>
+
+  <p>\[\begin{align}\tag{$\ast$}
+	e^{isp} e^{itq} = e^{ixy\lambda} e^{itq} e^{isp}
+\end{align}\]
+
+for any \(s,t \in \R\). The algebra representation \(\pi: \h \to \L(\H)\) is defined by \(\pi(X) = p\), \(\pi(Y) = q\), and \(\pi(Z) = \lambda \Id_\H\). We can check that it indeed descends to a unitary representation \(\rho: H \to \U(\H)\) defined by \(\rho(\exp(A)) = e^{i\pi(A)}\). (I started writing down the calculations but I’ll finish later)</p>
+</blockquote>
+
+<p>We call the relation \((*)\) the “Weyl’s formulation of the canonical commutation relation” (CCR) for \(p\) and \(q\).</p>
+
+<p>Another formulation of the CCR is Heisenberg’s (I think that’s the first we usually see, and that’s the first given historically):
+\[\begin{align}\tag{$**$}
+	pq - qp = -i\hbar \Id_\H.
+\end{align}\]
+</p>
+
+<p>I switched \(\lambda\) to \(\hbar \in \R\) (the reduced Planck constant) because this value corresponds to a physical observation of a small commutativity failing when we take \(p\) and \(q\) the position and momentum operators respectively.</p>
+
+<p>The Heisenbergs formulation can be easily derived from the Weyl’s formulation by differentiating \((*)\) with respect to \(s\) and \(t\) around \((0,0)\), but going from \((**)\) to \((*)\) is actually not possible</p>
+
+<p>Actually, doing formal calculations we can also derive \((*)\) from \((**)\) starting with commuting relations between \(p\) and \(q^n\), then polynomials in \(q\), and extending to the series \(e^{itq}\) (since we know from Stone’s theorem that it is well defined), and then between \(p^n\) and \(e^{itq}\), then polynomials in \(p\), and finaly between \(e^{isp}\) and \(e^{itq}\).
+But the results of those calculations only hold on the domain of definition of the objects at play, so we can’t consider any pair of self-adjoint operators \((p,q)\) since the domain of definition of the product (=composition) of the two operators may even be \(\{0\}\).</p>
+
+<p>In order to be able to use Heisenberg’s formulation, on must add some condition on \(p\) and \(q\), such as the one Kirillov refers to as “Edward Nelson Condition”.<sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup></p>
+
+<aside class="alert alert-todo">
+  <div>    <p>Find a realization of Heisenberg CCR which doesn’t realize Weyl CCR (someone gave a reference to an example on Wikipédia<sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup>)</p>
+</div>
+</aside>
+
+<hr />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>by “unitary representation” we imply strongly continuous (the strong operator topology on \(\U(\H)\) being the topology of pointwise convergence). <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>from what I undedrstood you need that for the adjoint to be defined anyway so it wouldn’t make sense to say “self-adjoint” otherwise (I’m not sure though, I have some digging to do into unbounded operators, the spectral theorem/measure, and why the exponential is well defined/measurable) <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>Nelson, Edward. ‘Analytic Vectors’. Annals of Mathematics 70, no. 3 (1959): 572–615. <a href="https://doi.org/10.2307/1970331">https://doi.org/10.2307/1970331</a>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p>Example 14.5 (p.285) from Hall, Brian C. Quantum Theory for Mathematicians. Vol. 267. Graduate Texts in Mathematics. New York, NY: Springer, 2013. <a href="https://doi.org/10.1007/978-1-4614-7116-5">https://doi.org/10.1007/978-1-4614-7116-5</a>. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
       </div>
     </article>

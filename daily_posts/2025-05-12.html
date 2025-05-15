@@ -63,10 +63,12 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\S}{\mathbb{S}}
 
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\B}{\mathcal{B}}
 \newcommand{\H}{\mathcal{H}}
+\newcommand{\U}{\mathcal{U}}
 \renewcommand{\k}{\mathbf{k}}
 \renewcommand{\h}{\mathfrak{h}}
 \renewcommand{\g}{\mathfrak{g}}
@@ -105,7 +107,7 @@
   <header class="post-header">
     <time class="dt-published dailypost-date" datetime="2025-05-12T00:00:00+02:00" itemprop="name datePublished">Mon, May 12, 2025
     </time>
-    (<a href="/daily_posts/2025-05-08.html">previous</a> | <a href="">next</a>)
+    ( <a href="/daily_posts/2025-05-08.html">previous</a> | <a href="/daily_posts/2025-05-14.html">next</a> )
     <h2 class="dailypost-title p-name" itemprop="headline">First part of constructing an irreducible unitary representation from a linear form on the Lie algeabra</h2>
   </header>
 
@@ -150,9 +152,26 @@ So if we want to restrict \(\pi_F\) to a group isomorphism we need to find a sub
   <li>\(\forall A,B \in \mathfrak{a},\, \frac{1}{2}F([A,B]) \in \Z = \ker(x \mapsto e^{2i\pi x})\)</li>
 </ol>
 
-<p>The last one actually falls back to the second one. It gives us multiple diconnected components of \(\h\) as values allowed for the bracket (\([\mathfrak{a},\mathfrak{a}] \subset F^{-1}(2\Z)\), and \(F\) is continuous, and \(2\Z\) is discrete so disconnected). So since \(\mathfrak{a} &lt; \h\) is connected, and \(\mathfrak{a} = [\mathfrak{a},0] \subset [\mathfrak{a},\mathfrak{a}]\), it is contained in the connected component containing 0: \(F^{-1}(\{0\})\).</p>
+<p>The last one actually falls back to the second one.<br />
+If the last constraint is verfied we have this partition of the set of allowed values for the bracket:
+\[[\mathfrak{a},\mathfrak{a}] \subset F^{-1}(2\Z) = \bigsqcup_{n \in \N} F^{-1}(2n)\]
 
-<p>Both the first and the second one are pretty straightforward and still work for higher order nilpotent Lie abebra.</p>
+where each \(F^{-1}(2n)\) is both open and closed (they may not be connected, but they’re unions of connected components).<br />
+On the other hand, the bracket being continous from \(\h \times \h\) to \(\h\) we have that \([\mathfrak{a},\mathfrak{a}]\) is connected in \(\h\) because \(\mathfrak{a}\) is connected in \(\h\) (linear subspaces are path-connected), so \(\mathfrak{a} \times \mathfrak{a}\) is connected in \(\h \times \h\).<br />
+So we must have \([\mathfrak{a},\mathfrak{a}] \subset F^{-1}(2n)\) for some \(n \in \Z\), and since we have \([0_\h,0_\h] = 0_\h \in F^{-1}(0)\) we must have \(n=0\), which is exactly the second constraint</p>
+
+<aside class="alert alert-warning">
+  <div>    <p>I just remembered what I initially wrote here as a proof of \(\text{(3)} \Rightarrow \text{(2)}\), and god what a mess it was. Thankfully it looks like the statement was still true, as I found a new proof.</p>
+
+    <p>Here is the previous version if you want to look at how wrong it went (two false basic statements in such a short proof…).</p>
+
+    <blockquote>
+      <p>the last condition gives us multiple diconnected components of \(\h\) as values allowed for the bracket (\([\mathfrak{a},\mathfrak{a}] \subset F^{-1}(2\Z)\), and \(F\) is continuous, and \(2\Z\) is discrete so disconnected). So since \(\mathfrak{a} &lt; \h\) is connected, and \(\mathfrak{a} = [\mathfrak{a},0] \subset [\mathfrak{a},\mathfrak{a}]\), it is contained in the connected component containing 0: \(F^{-1}(\{0\})\).</p>
+    </blockquote>
+</div>
+</aside>
+
+<p>Both (1) and (2) are pretty straightforward and still work for higher order nilpotent Lie abebra.</p>
 
 <p>And the second one is pretty neat: it’s (possibly) more permissive than the first one (the permissiveness depends on \(F\), if I take \(F: xX+yY+zZ \mapsto z\) then the second condition implies the first one), but it is still really simple. <br />
 It’s the one we’ll use.</p>
@@ -179,7 +198,7 @@ It’s the one we’ll use.</p>
 
   </div>
 
-  (<a href="/daily_posts/2025-05-08.html">previous</a> | <a href="">next</a>)
+  ( <a href="/daily_posts/2025-05-08.html">previous</a> | <a href="/daily_posts/2025-05-14.html">next</a> )
 
   <a class="u-url" href="/daily_posts/2025-05-12.html" hidden></a>
 </article>

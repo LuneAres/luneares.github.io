@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Unitary representations of the Heisenberg group: CCR to express it in the algebra</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Unitary representations of the Heisenberg group: CCR to express it in the algebra" />
+<meta name="author" content="Elias Garcia--Naze" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Okay, I have a few things I wanna talk about but I don’t have time to write everything down tonight. Let’s sum things up here." />
+<meta property="og:description" content="Okay, I have a few things I wanna talk about but I don’t have time to write everything down tonight. Let’s sum things up here." />
+<link rel="canonical" href="https://luneares.github.io/daily_posts/2025-05-14.html" />
+<meta property="og:url" content="https://luneares.github.io/daily_posts/2025-05-14.html" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-05-14T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Unitary representations of the Heisenberg group: CCR to express it in the algebra" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Elias Garcia--Naze"},"dateModified":"2025-05-14T00:00:00+02:00","datePublished":"2025-05-14T00:00:00+02:00","description":"Okay, I have a few things I wanna talk about but I don’t have time to write everything down tonight. Let’s sum things up here.","headline":"Unitary representations of the Heisenberg group: CCR to express it in the algebra","mainEntityOfPage":{"@type":"WebPage","@id":"https://luneares.github.io/daily_posts/2025-05-14.html"},"url":"https://luneares.github.io/daily_posts/2025-05-14.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://luneares.github.io/feed.xml" /><script
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      type="text/javascript">
+    </script>
+    <!-- More informations:
+    https://minimalbb.github.io/cheat%20sheet/kramdown-markdown-guide-with-jekyll/
+    https://www.fabriziomusacchio.com/blog/2021-08-10-How_to_use_LaTeX_in_Markdown/
+    -->
+    <!-- et si je veux utiliser mathjax sur "$$" (je l'ai enlevé parce que comme ça je laisse kramdown parser et transformer les "$" en "\(", ce qui permet d'échapper les "$" en écrivant "\$")
+      inlineMath: [['$','$'], ['\\(','\\)']]
+    -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['\\(','\\)']],
+          processEscapes: true
+        },
+        "HTML-CSS": { scale: 90, linebreaks: { automatic: false } }, 
+        SVG: { linebreaks: { automatic: false } }, 
+        displayAlign: "center"
+      });
+    </script>
+
+    <!-- And there is this. I don't even know where I've taken it from and why: -->
+    <!-- <script
+      type="text/javascript"
+      charset="utf-8"
+      src="https://vincenttam.github.io/javascripts/MathJaxLocal.js"
+    >
+    </script> -->
+
+    <!-- latex macros -->
+    <!-- See:
+      https://www.wild-inter.net/posts/mathjax-in-jekyll
+      https://docs.mathjax.org/en/latest/input/tex/macros.html
+    -->
+    <div style="display:none">
+    $$% 
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\S}{\mathbb{S}}
+
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\H}{\mathcal{H}}
+\newcommand{\U}{\mathcal{U}}
+\renewcommand{\k}{\mathbf{k}}
+\renewcommand{\h}{\mathfrak{h}}
+\renewcommand{\g}{\mathfrak{g}}
+\newcommand{\L}{\mathcal{L}}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\M}{M}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\tr}{tr}
+
+\newcommand{\tini}[1]{{{}_{#1}}}
+
+% $$
+    </div></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href=""></a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/daily_posts.html">Daily posts</a><a class="page-link" href="/">Home</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <time class="dt-published dailypost-date" datetime="2025-05-14T00:00:00+02:00" itemprop="name datePublished">Wed, May 14, 2025
+    </time>
+    ( <a href="/daily_posts/2025-05-12.html">previous</a> | <del>next</del> )
+    <h2 class="dailypost-title p-name" itemprop="headline">Unitary representations of the Heisenberg group: CCR to express it in the algebra</h2>
+  </header>
+
+  <div class="post-content dailypost-content e-content" itemprop="articleBody">
+    <p>Okay, I have a few things I wanna talk about but I don’t have time to write everything down tonight. Let’s sum things up here.</p>
+
+<p>The idea is that using Stone’s theorem on one-parameter unitary groups we can match unitary (irreducible) representations of the Heisenberg group with (irreducible) a class of representations of the algebra (hum, maybe this correspondance appear in the proof of Stone’s theorem).<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
+
+<p>A representation of the heisenberg group is totally caracterized by the representation of the one-parameter subgroups generated by \(X\), \(Y\), and \(Z\).</p>
+
+<p>If we consider \(\exp(xX) \in H\) an element of the one parameter subgroup generated by \(X\), and \(\rho: H \to \U(\H)\) an unitary representation, then we have (by Stone’s theorem) \(\rho(\exp(xX)) = e^{ixT_X}\) with \(T_X \in \L(\H)\) self-adjoint (and potentially unbounded, but densily defined<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>). And in a similar fashion we can define \(T_Y\) and \(T_Z\).</p>
+
+<p>And if \(\rho\) is irreducible we have that \(e^{izT_Z} = \rho(\exp(zZ))\) is a multiplication operator, so \(T_Z = \lambda\Id_\H\) with \(\lambda \in \R\). And we have \(e^{ixT_X} e^{iyT_Y} = \rho(\exp(aX) \exp(bY)) = \rho \big( \exp(bY) \exp(aX) \exp(abZ) \big) = e^{ibT_Y} e^{iaT_X} e^{iab\lambda \Id_\H} = e^{iab\lambda} e^{ibT_Y} e^{iaT_X}\)</p>
+
+<p>In the end what we get is a caracterization of the representations of the Heisenberg algebra corresponding to unitary irreducible representations of the Heisenberg group:</p>
+
+<blockquote>
+  <p>Choose \(\lambda \in \R\) and two self-adjoint operators \(p\), \(q\) verifying</p>
+
+  <p>\[\begin{align}\tag{$\ast$}
+	e^{isp} e^{itq} = e^{ixy\lambda} e^{itq} e^{isp}
+\end{align}\]
+
+for any \(s,t \in \R\). The algebra representation \(\pi: \h \to \L(\H)\) is defined by \(\pi(X) = p\), \(\pi(Y) = q\), and \(\pi(Z) = \lambda \Id_\H\). We can check that it indeed descends to a unitary representation \(\rho: H \to \U(\H)\) defined by \(\rho(\exp(A)) = e^{i\pi(A)}\). (I started writing down the calculations but I’ll finish later)</p>
+</blockquote>
+
+<p>We call the relation \((*)\) the “Weyl’s formulation of the canonical commutation relation” (CCR) for \(p\) and \(q\).</p>
+
+<p>Another formulation of the CCR is Heisenberg’s (I think that’s the first we usually see, and that’s the first given historically):
+\[\begin{align}\tag{$**$}
+	pq - qp = -i\hbar \Id_\H.
+\end{align}\]
+</p>
+
+<p>I switched \(\lambda\) to \(\hbar \in \R\) (the reduced Planck constant) because this value corresponds to a physical observation of a small commutativity failing when we take \(p\) and \(q\) the position and momentum operators respectively.</p>
+
+<p>The Heisenbergs formulation can be easily derived from the Weyl’s formulation by differentiating \((*)\) with respect to \(s\) and \(t\) around \((0,0)\), but going from \((**)\) to \((*)\) is actually not possible</p>
+
+<p>Actually, doing formal calculations we can also derive \((*)\) from \((**)\) starting with commuting relations between \(p\) and \(q^n\), then polynomials in \(q\), and extending to the series \(e^{itq}\) (since we know from Stone’s theorem that it is well defined), and then between \(p^n\) and \(e^{itq}\), then polynomials in \(p\), and finaly between \(e^{isp}\) and \(e^{itq}\).
+But the results of those calculations only hold on the domain of definition of the objects at play, so we can’t consider any pair of self-adjoint operators \((p,q)\) since the domain of definition of the product (=composition) of the two operators may even be \(\{0\}\).</p>
+
+<p>In order to be able to use Heisenberg’s formulation, on must add some condition on \(p\) and \(q\), such as the one Kirillov refers to as “Edward Nelson Condition”.<sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup></p>
+
+<aside class="alert alert-todo">
+  <div>    <p>Find a realization of Heisenberg CCR which doesn’t realize Weyl CCR (someone gave a reference to an example on Wikipédia<sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup>)</p>
+</div>
+</aside>
+
+<hr />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>by “unitary representation” we imply strongly continuous (the strong operator topology on \(\U(\H)\) being the topology of pointwise convergence). <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>from what I undedrstood you need that for the adjoint to be defined anyway so it wouldn’t make sense to say “self-adjoint” otherwise (I’m not sure though, I have some digging to do into unbounded operators, the spectral theorem/measure, and why the exponential is well defined/measurable) <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>Nelson, Edward. ‘Analytic Vectors’. Annals of Mathematics 70, no. 3 (1959): 572–615. <a href="https://doi.org/10.2307/1970331">https://doi.org/10.2307/1970331</a>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p>Example 14.5 (p.285) from Hall, Brian C. Quantum Theory for Mathematicians. Vol. 267. Graduate Texts in Mathematics. New York, NY: Springer, 2013. <a href="https://doi.org/10.1007/978-1-4614-7116-5">https://doi.org/10.1007/978-1-4614-7116-5</a>. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </div>
+
+  ( <a href="/daily_posts/2025-05-12.html">previous</a> | <del>next</del> )
+
+  <a class="u-url" href="/daily_posts/2025-05-14.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading"></h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Elias Garcia--Naze</li></ul><ul class="social-media-list"><li><a href="https://github.com/LuneAres"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">LuneAres</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-2">
+        <a href="/license.html">Licence et remerciements</a>
+        <a href="/mentions_legales.html">Mentions légales</a>
+        <!-- <p xmlns:cc="http://creativecommons.org/ns#" >
+          Le contenu de ce site est autant que possible soumis à la licence
+          <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1" alt=""></a>
+        </p> -->
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Un petit blog de maths pour raconter ce que je fais pendant mon stage</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
